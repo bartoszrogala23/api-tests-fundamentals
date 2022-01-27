@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.apache.http.HttpStatus.SC_OK;
 
 public class FundamentalsServiceTest {
 
@@ -14,7 +14,7 @@ public class FundamentalsServiceTest {
     @Test
     @DisplayName("check if 200 recieved")
     void Response() {
-        var response = FundamentalsService.getResponse(200);
+        var response = FundamentalsService.getResponse(SC_OK);
 
 //        response
 //                .then()

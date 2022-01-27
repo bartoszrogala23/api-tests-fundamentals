@@ -1,25 +1,26 @@
 package fundamentals;
 
 import io.restassured.response.Response;
-import io.restassured.RestAssured;
 
 import static fundamentals.ServiceEndpoint.LOCAL_HOST_OK;
+import static io.restassured.RestAssured.given;
 
 public class FundamentalsService {
 
 
     public static Response getResponse(int httpStatus) {
-        return RestAssured
-                .given()
-                .log().all()
-                .when()
-                .get(LOCAL_HOST_OK.getEndpoint())
-                .then()
-                .log()
-                .ifValidationFails()
-                .statusCode(httpStatus)
-                .extract()
-                .response();
-}
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .get(LOCAL_HOST_OK.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }
 
