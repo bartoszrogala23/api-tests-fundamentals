@@ -11,8 +11,9 @@ public class FundamentalsService {
     public static Response getResponse(int httpStatus) {
         return RestAssured
                 .given()
+                .log().all()
                 .when()
-                .post(LOCAL_HOST_OK.getEndpoint())
+                .get(LOCAL_HOST_OK.getEndpoint())
                 .then()
                 .log()
                 .ifValidationFails()
