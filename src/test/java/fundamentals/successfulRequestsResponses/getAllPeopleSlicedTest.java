@@ -29,6 +29,10 @@ class getAllPeopleSlicedTest {
 
         var response = FundamentalsService.getAllPeopleSliced(params, SC_OK);
 
+        response
+                .then()
+                .body(matchesJsonSchemaInClasspath(getSchema("getPeopleSchema")));
+
         softly.assertThat(response.body().asString()).contains("first_name", "last_name");
         softly.assertAll();
     }

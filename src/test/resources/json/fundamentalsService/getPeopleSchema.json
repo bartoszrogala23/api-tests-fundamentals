@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
+  "type": ["object", "array"],
   "items": [
     {
-      "type": "object",
+      "type": ["object", "array"],
       "properties": {
         "first_name": {
           "type": "string"
