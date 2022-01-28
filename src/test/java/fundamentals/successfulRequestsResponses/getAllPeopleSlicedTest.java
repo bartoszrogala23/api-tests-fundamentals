@@ -15,7 +15,7 @@ class getAllPeopleSlicedTest {
     int upToNumber = 15;
 
     @Test
-    @DisplayName("check if 422 received using incomplete query parameters")
+    @DisplayName("check if response is sliced by query parameters")
     void getResponseUsingParamsValidationErrorTest() {
         var softly = new SoftAssertions();
         Map<String, Object> params = Maps.of(
