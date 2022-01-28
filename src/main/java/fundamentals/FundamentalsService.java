@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 public class FundamentalsService {
 
 
-    public static Response getResponse(int httpStatus) {
+    public static Response getResponseOk(int httpStatus) {
         return
                 given()
                         .log()
