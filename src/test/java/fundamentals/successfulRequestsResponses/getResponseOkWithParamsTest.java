@@ -8,18 +8,23 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+import static fundamentals.FundamentalsServiceSpecification.getSchema;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
 class getResponseOkWithParamsTest {
+
+    String name = "Jose";
+    String middleName = "Maria";
+    String lastName = "Gonzales";
+    int height = 10;
+
 
     @Test
     @DisplayName("check if 200 received using query parameters")
     void getResponseUsingParamsTest() {
         var softly = new SoftAssertions();
-        String name = "Jose";
-        String middleName = "Maria";
-        String lastName = "Gonzales";
-        int height = 10;
 
         Map<String, Object> params = Maps.of(
                 "first_name", name,
@@ -37,5 +42,21 @@ class getResponseOkWithParamsTest {
         softly.assertThat(response.body().asString())
                 .contains(lastName);
         softly.assertAll();
+    }
+
+    @Test
+    @DisplayName("check if 422 received using incomplete query parameters")
+    void getResponseUsingParamsValidationErrorTest() {
+        Map<String, Object> params = Maps.of(
+                "middle_name", middleName,
+                "last_name", lastName,
+                "height", height
+        );
+
+        var response = FundamentalsService.getResponseOkWithParams(params, SC_UNPROCESSABLE_ENTITY);
+
+        response
+                .then()
+                .body(matchesJsonSchemaInClasspath(getSchema("queryParamsValidationErrorSchema")));
     }
 }
