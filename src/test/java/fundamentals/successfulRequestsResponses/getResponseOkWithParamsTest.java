@@ -47,13 +47,13 @@ class getResponseOkWithParamsTest {
     @Test
     @DisplayName("check if 422 received using incomplete query parameters")
     void getResponseUsingParamsValidationErrorTest() {
-        Map<String, Object> params = Maps.of(
+        Map<String, Object> invalidParams = Maps.of(
                 "middle_name", middleName,
                 "last_name", lastName,
                 "height", height
         );
 
-        var response = FundamentalsService.getResponseOkWithParams(params, SC_UNPROCESSABLE_ENTITY);
+        var response = FundamentalsService.getResponseOkWithParams(invalidParams, SC_UNPROCESSABLE_ENTITY);
 
         response
                 .then()
