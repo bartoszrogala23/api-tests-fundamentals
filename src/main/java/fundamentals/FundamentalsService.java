@@ -7,7 +7,6 @@ import static io.restassured.RestAssured.given;
 
 public class FundamentalsService {
 
-
     public static Response getResponseOk(int httpStatus) {
         return
                 given()
@@ -23,4 +22,3 @@ public class FundamentalsService {
                         .response();
     }
 }
-
