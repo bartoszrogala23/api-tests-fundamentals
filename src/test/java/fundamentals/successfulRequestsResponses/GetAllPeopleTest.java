@@ -19,5 +19,6 @@ class GetAllPeopleTest {
         var response = FundamentalsService.getAllPeople(SC_OK);
 
         softly.assertThat(response.body().asString()).contains("first_name", "last_name");
+        softly.assertAll();
     }
 }
