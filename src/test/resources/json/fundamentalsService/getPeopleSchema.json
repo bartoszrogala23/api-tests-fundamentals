@@ -1,4 +1,18 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "string"
+  "type": "object",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
 }
