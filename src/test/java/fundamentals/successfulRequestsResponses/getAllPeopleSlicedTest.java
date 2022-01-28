@@ -8,15 +8,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+import static fundamentals.FundamentalsServiceSpecification.getSchema;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
 class getAllPeopleSlicedTest {
+    String invalidValue = "-ABC@";
     int fromNumber = 10;
     int upToNumber = 15;
 
     @Test
-    @DisplayName("check if response is sliced by query parameters")
-    void getResponseUsingParamsValidationErrorTest() {
+    @DisplayName("check if response is sliced by query parameters test")
+    void getSlicedResponseUsingParamsTest() {
         var softly = new SoftAssertions();
         Map<String, Object> params = Maps.of(
                 "from_number", fromNumber,
@@ -27,5 +31,20 @@ class getAllPeopleSlicedTest {
 
         softly.assertThat(response.body().asString()).contains("first_name", "last_name");
         softly.assertAll();
+    }
+
+    @Test
+    @DisplayName("check if response does not accept invalid variable type test")
+    void getResponseUsingInvalidParamsTest() {
+        Map<String, Object> params = Maps.of(
+                "from_number", invalidValue,
+                "up_to_number", upToNumber
+        );
+
+        var response = FundamentalsService.getAllPeopleSliced(params, SC_UNPROCESSABLE_ENTITY);
+
+        response
+                .then()
+                .body(matchesJsonSchemaInClasspath(getSchema("queryParamsValidationErrorSchema")));
     }
 }
