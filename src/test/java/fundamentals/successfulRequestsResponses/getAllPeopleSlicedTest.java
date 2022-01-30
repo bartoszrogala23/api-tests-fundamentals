@@ -9,12 +9,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
+import static fundamentals.Values.INVALID_VALUE;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
 class getAllPeopleSlicedTest {
-    String invalidValue = "-ABC@";
     int fromNumber = 10;
     int upToNumber = 15;
 
@@ -41,7 +41,7 @@ class getAllPeopleSlicedTest {
     @DisplayName("check if response does not accept invalid variable type test")
     void getResponseUsingInvalidParamsTest() {
         Map<String, Object> params = Maps.of(
-                "from_number", invalidValue,
+                "from_number", INVALID_VALUE,
                 "up_to_number", upToNumber
         );
 

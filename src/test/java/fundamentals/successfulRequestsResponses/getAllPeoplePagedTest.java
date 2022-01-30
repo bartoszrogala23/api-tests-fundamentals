@@ -9,22 +9,21 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
+import static fundamentals.Values.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
 class getAllPeoplePagedTest {
-    String invalidValue = "-ABC@";
-    int pageSize  = 10;
-    int pageNumber  = 10;
+
 
     @Test
     @DisplayName("check if response is sliced by query parameters test")
     void getSlicedResponseUsingParamsTest() {
         var softly = new SoftAssertions();
         Map<String, Object> params = Maps.of(
-                "page_size", pageSize,
-                "page_number", pageNumber
+                "page_size", PAGE_SIZE_VALUE,
+                "page_number", PAGE_NUMBER_VALUE
         );
 
         var response = FundamentalsService.getAllPeoplePaged(params, SC_OK);
@@ -41,8 +40,8 @@ class getAllPeoplePagedTest {
     @DisplayName("check if response does not accept invalid variable type test")
     void getResponseUsingInvalidParamsTest() {
         Map<String, Object> params = Maps.of(
-                "page_size", invalidValue,
-                "page_number", pageNumber
+                "page_size", INVALID_VALUE,
+                "page_number", PAGE_NUMBER_VALUE
         );
 
         var response = FundamentalsService.getAllPeoplePaged(params, SC_UNPROCESSABLE_ENTITY);
