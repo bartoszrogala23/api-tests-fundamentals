@@ -4,11 +4,7 @@ import io.restassured.response.Response;
 
 import java.util.Map;
 
-import static fundamentals.ServiceEndpoint.GET_PEOPLE;
-import static fundamentals.ServiceEndpoint.GET_PEOPLE_PAGED;
-import static fundamentals.ServiceEndpoint.GET_PEOPLE_SLICED;
-import static fundamentals.ServiceEndpoint.LOCAL_HOST_OK;
-import static fundamentals.ServiceEndpoint.QUERY_PARAMS;
+import static fundamentals.ServiceEndpoint.*;
 import static io.restassured.RestAssured.given;
 
 public class FundamentalsService {
@@ -89,5 +85,21 @@ public class FundamentalsService {
                         .statusCode(httpStatus)
                         .extract()
                         .response();
+    }
+
+    public static Response getAllPeopleByName(Map<String,Object> params, int httpStatus){
+        return
+                given()
+                .log()
+                .ifValidationFails()
+                .when()
+                .queryParams(params)
+                .get(GET_PEOPLE_BY.getEndpoint())
+                .then()
+                .log()
+                .ifValidationFails()
+                .statusCode(httpStatus)
+                .extract()
+                .response();
     }
 }
