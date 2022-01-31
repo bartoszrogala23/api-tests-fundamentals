@@ -1,5 +1,6 @@
 package fundamentals;
 
+import fundamentals.models.People;
 import io.restassured.response.Response;
 
 import java.util.Map;
@@ -101,5 +102,21 @@ public class FundamentalsService {
                 .statusCode(httpStatus)
                 .extract()
                 .response();
+    }
+
+    public static Response postHuman(String body, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .body(body)
+                        .post(HUMAN.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
     }
 }

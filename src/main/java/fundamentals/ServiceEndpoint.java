@@ -14,7 +14,7 @@ public enum ServiceEndpoint {
     GET_PEOPLE_SLICED(LOCAL_HOST.endpoint + "/get_all_people_sliced"),
     GET_PEOPLE_PAGED(LOCAL_HOST.endpoint + "/get_all_people_paged"),
     GET_PEOPLE_BY(LOCAL_HOST.endpoint + "/get_people_by"),
-    HUMAN(LOCAL_HOST.endpoint + "/human"),
+    HUMAN(LOCAL_HOST.endpoint + "/human/"),
     HUMAN_BY_ID(HUMAN.endpoint + "/{human_id}");
 
     private final String endpoint;

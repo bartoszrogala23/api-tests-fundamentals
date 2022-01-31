@@ -1,7 +1,6 @@
 package fundamentals.successfulRequestsResponses;
 
 import fundamentals.FundamentalsService;
-import fundamentals.util.Util;
 import org.apache.groovy.util.Maps;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
@@ -10,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
-import static fundamentals.util.Util.getSingleRecordFromPeople;
+import static fundamentals.util.Util.getSingleRecordByNumberFromPeople;
 import static fundamentals.util.Values.FIRST_NAME;
 import static fundamentals.util.Values.INVALID_VALUE;
 import static fundamentals.util.Values.LAST_NAME;
@@ -31,7 +30,7 @@ class getAllPeopleSlicedTest {
                 "up_to_number", upToNumber
         );
 
-        var response = FundamentalsService.getAllPeopleSliced(getSingleRecordFromPeople(), SC_OK);
+        var response = FundamentalsService.getAllPeopleSliced(getSingleRecordByNumberFromPeople(), SC_OK);
 
         response
                 .then()
