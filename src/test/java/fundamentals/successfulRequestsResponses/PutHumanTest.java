@@ -29,8 +29,8 @@ class PutHumanTest {
     }
 
     @Test
-    @DisplayName("put Human using incorrect id Test")
-    void putHumanWithIncorrectIdTest() {
+    @DisplayName("put Human using invalid body Test")
+    void putHumanWithIncorrectBodyTest() {
 
 
         var response = FundamentalsService.putHuman(getRandomId(), INVALID_VALUE, SC_UNPROCESSABLE_ENTITY);

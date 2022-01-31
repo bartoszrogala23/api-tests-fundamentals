@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import java.util.Map;
 
 import static fundamentals.ServiceEndpoint.*;
+import static fundamentals.util.Values.HUMAN_ID;
 import static io.restassured.RestAssured.given;
 
 public class FundamentalsService {
@@ -128,6 +129,22 @@ public class FundamentalsService {
                         .body(body)
                         .pathParam("human_id", idParam)
                         .put(HUMAN_BY_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response deleteHuman(int idParam, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParam("human_id", idParam)
+                        .delete(HUMAN_BY_ID.getEndpoint())
                         .then()
                         .log()
                         .ifValidationFails()
