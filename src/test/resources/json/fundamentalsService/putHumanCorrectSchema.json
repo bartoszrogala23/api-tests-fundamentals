@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "human": {
+      "type": "object",
+      "properties": {
+        "last_name": {
+          "type": "string"
+        },
+        "first_name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "last_name",
+        "first_name"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "message",
+    "human"
+  ]
+}

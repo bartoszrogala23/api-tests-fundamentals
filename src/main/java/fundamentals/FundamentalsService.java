@@ -119,4 +119,21 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response putHuman(int id_param, String body, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .body(body)
+                        .pathParam("human_id", id_param)
+                        .put(HUMAN_BY_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }
