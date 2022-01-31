@@ -1,6 +1,7 @@
 package fundamentals.successfulRequestsResponses;
 
 import fundamentals.FundamentalsService;
+import fundamentals.util.Util;
 import org.apache.groovy.util.Maps;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +10,10 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
+import static fundamentals.util.Util.getSingleRecordFromPeople;
+import static fundamentals.util.Values.FIRST_NAME;
 import static fundamentals.util.Values.INVALID_VALUE;
+import static fundamentals.util.Values.LAST_NAME;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
@@ -27,13 +31,14 @@ class getAllPeopleSlicedTest {
                 "up_to_number", upToNumber
         );
 
-        var response = FundamentalsService.getAllPeopleSliced(params, SC_OK);
+        var response = FundamentalsService.getAllPeopleSliced(getSingleRecordFromPeople(), SC_OK);
 
         response
                 .then()
                 .body(matchesJsonSchemaInClasspath(getSchema("getPeopleSchema")));
 
-        softly.assertThat(response.body().asString()).contains("first_name", "last_name");
+        softly.assertThat(response.body().asString()).containsOnlyOnce(FIRST_NAME);
+        softly.assertThat(response.body().asString()).containsOnlyOnce(LAST_NAME);
         softly.assertAll();
     }
 

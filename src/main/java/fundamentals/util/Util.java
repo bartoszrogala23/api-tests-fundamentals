@@ -8,7 +8,6 @@ import java.util.Random;
 
 import static fundamentals.util.Values.FROM_NUMBER;
 import static fundamentals.util.Values.UP_TO_NUMBER;
-import static java.lang.Integer.parseInt;
 
 public class Util {
     static final int lowerBound = 1;
@@ -16,9 +15,10 @@ public class Util {
 
     public static Map<String, Object> getSingleRecordFromPeople() {
         Random random = new Random();
-        String randomRecordNumber = Integer.toString(
-                random.nextInt(upperBound - lowerBound) + lowerBound);
-        String randomRecordNumberUpperBound = Integer.toString(parseInt(randomRecordNumber + 1));
+        int randomValue = (random.nextInt(upperBound - lowerBound) + lowerBound);
+        int randomValueBound = randomValue + 1;
+        String randomRecordNumber = Integer.toString(randomValue);
+        String randomRecordNumberUpperBound = Integer.toString(randomValueBound);
         return Maps.of(
                 FROM_NUMBER, randomRecordNumber,
                 UP_TO_NUMBER, randomRecordNumberUpperBound
