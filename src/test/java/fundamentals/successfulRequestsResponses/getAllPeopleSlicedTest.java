@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
-import static fundamentals.Values.INVALID_VALUE;
+import static fundamentals.util.Values.INVALID_VALUE;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;

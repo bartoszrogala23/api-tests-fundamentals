@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static fundamentals.Values.FIRST_NAME;
-import static fundamentals.Values.LAST_NAME;
+import static fundamentals.util.Values.FIRST_NAME;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class GetPeopleParamsTest {
@@ -21,8 +20,8 @@ public class GetPeopleParamsTest {
         );
 
         var response = FundamentalsService.getAllPeopleByName(params, SC_OK);
-//
-//        softly.assertThat(response.body().asString()).contains(name);
-//        softly.assertAll();
+
+        softly.assertThat(response.body().asString()).contains(name);
+        softly.assertAll();
     }
 }
