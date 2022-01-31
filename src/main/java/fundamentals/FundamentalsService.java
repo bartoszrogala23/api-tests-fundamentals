@@ -1,6 +1,5 @@
 package fundamentals;
 
-import fundamentals.models.People;
 import io.restassured.response.Response;
 
 import java.util.Map;
@@ -120,14 +119,14 @@ public class FundamentalsService {
                         .response();
     }
 
-    public static Response putHuman(int id_param, String body, int httpStatus){
+    public static Response putHuman(int idParam, String body, int httpStatus){
         return
                 given()
                         .log()
                         .ifValidationFails()
                         .when()
                         .body(body)
-                        .pathParam("human_id", id_param)
+                        .pathParam("human_id", idParam)
                         .put(HUMAN_BY_ID.getEndpoint())
                         .then()
                         .log()
