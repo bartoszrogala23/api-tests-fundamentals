@@ -152,4 +152,21 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response patchHuman(int idParam, String body, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .body(body)
+                        .pathParam("human_id", idParam)
+                        .patch(HUMAN_BY_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }
