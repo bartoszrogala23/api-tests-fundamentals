@@ -50,7 +50,7 @@ public class Util {
         );
     }
 
-    public static People createRandomBodyForPeople() {
+    public static People createRandomBody() {
         return People.builder().first_name(faker.name().firstName()).last_name(faker.name().lastName()).build();
     }
 }

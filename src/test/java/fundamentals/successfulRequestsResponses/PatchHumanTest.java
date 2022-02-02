@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
-import static fundamentals.util.Util.createRandomBodyForPeople;
+import static fundamentals.util.Util.createRandomBody;
 import static fundamentals.util.Util.getRandomId;
 import static fundamentals.util.Values.INVALID_VALUE;
 import static groovy.json.JsonOutput.toJson;
@@ -20,7 +20,7 @@ class PatchHumanTest {
     void patHumanCorrectRequestTest() {
 
 
-        var response = FundamentalsService.patchHuman(getRandomId(), toJson(createRandomBodyForPeople()), SC_ACCEPTED);
+        var response = FundamentalsService.patchHuman(getRandomId(), toJson(createRandomBody()), SC_ACCEPTED);
 
         response
                 .then()

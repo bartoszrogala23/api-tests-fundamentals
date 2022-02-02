@@ -249,4 +249,21 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response putOperation(String operationName, String body, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParam("operation_name", operationName)
+                        .body(body)
+                        .put(SERVER_OPERATION.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }

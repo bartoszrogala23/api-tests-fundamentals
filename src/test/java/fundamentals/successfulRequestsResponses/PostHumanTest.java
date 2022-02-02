@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
-import static fundamentals.util.Util.createRandomBodyForPeople;
+import static fundamentals.util.Util.createRandomBody;
 import static fundamentals.util.Values.INVALID_VALUE;
 import static groovy.json.JsonOutput.toJson;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -17,7 +17,7 @@ class PostHumanTest {
     @DisplayName("add new record test")
     void createNewHumanTest() {
 
-        var response = FundamentalsService.postHuman(toJson(createRandomBodyForPeople()), SC_CREATED);
+        var response = FundamentalsService.postHuman(toJson(createRandomBody()), SC_CREATED);
 
         response
                 .then()

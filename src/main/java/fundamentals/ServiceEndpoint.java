@@ -18,7 +18,8 @@ public enum ServiceEndpoint {
     HUMAN_BY_ID(HUMAN.endpoint + "{human_id}"),
 
     LIMITED(LOCAL_HOST.endpoint + "/limited"),
-    THINGS(LOCAL_HOST.endpoint + "/things/{things_id}");
+    THINGS(LOCAL_HOST.endpoint + "/things/{things_id}"),
+    SERVER_OPERATION(LOCAL_HOST.endpoint + "/server_operation/{operation_name}");
 
     private final String endpoint;
 }

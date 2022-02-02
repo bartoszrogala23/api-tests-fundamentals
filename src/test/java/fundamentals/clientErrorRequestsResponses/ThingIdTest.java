@@ -27,12 +27,8 @@ class ThingIdTest {
     @Test
     @DisplayName("try to put thing id test")
     void putThingIdTes() {
-        var softly = new SoftAssertions();
 
         var response = FundamentalsService.putThingId(getRandomId(), SC_UNPROCESSABLE_ENTITY);
-
-        softly.assertThat(response.body().asString()).contains("detail", "Not Found");
-        softly.assertAll();
 
         response
                 .then()
