@@ -2,6 +2,9 @@ package fundamentals.util;
 
 import com.github.javafaker.Faker;
 import fundamentals.models.People;
+import io.restassured.authentication.PreemptiveBasicAuthScheme;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
 import lombok.NoArgsConstructor;
 import org.apache.groovy.util.Maps;
 
@@ -19,6 +22,17 @@ public class Util {
     static final int upperBound = 1000;
     static final Faker faker = new Faker();
     static final Random random = new Random();
+
+    public static RequestSpecification createWithCredentials(String username, String password) {
+        var requestSpecBuilder = new RequestSpecBuilder();
+        var authScheme = new PreemptiveBasicAuthScheme();
+        authScheme.setUserName(username);
+        authScheme.setPassword(password);
+        requestSpecBuilder.addHeader("Content-Type", "application/json");
+        requestSpecBuilder.setAuth(authScheme);
+
+        return requestSpecBuilder.build();
+    }
 
     public static int getRandomId() {
         return (random.nextInt(upperBound - lowerBound) + lowerBound);

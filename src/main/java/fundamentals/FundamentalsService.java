@@ -1,14 +1,21 @@
 package fundamentals;
 
+import fundamentals.util.Util;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
 
 import static fundamentals.ServiceEndpoint.*;
-import static fundamentals.util.Values.HUMAN_ID;
+import static fundamentals.util.Util.createWithCredentials;
+import static fundamentals.util.Values.PASSWORD;
+import static fundamentals.util.Values.USERNAME;
 import static io.restassured.RestAssured.given;
 
 public class FundamentalsService {
+
+    private final static String HUMAN_ID ="human_id";
 
     public static Response getResponseOk(int httpStatus) {
         return
@@ -127,7 +134,7 @@ public class FundamentalsService {
                         .ifValidationFails()
                         .when()
                         .body(body)
-                        .pathParam("human_id", idParam)
+                        .pathParam(HUMAN_ID, idParam)
                         .put(HUMAN_BY_ID.getEndpoint())
                         .then()
                         .log()
@@ -143,7 +150,7 @@ public class FundamentalsService {
                         .log()
                         .ifValidationFails()
                         .when()
-                        .pathParam("human_id", idParam)
+                        .pathParam(HUMAN_ID, idParam)
                         .delete(HUMAN_BY_ID.getEndpoint())
                         .then()
                         .log()
@@ -160,7 +167,7 @@ public class FundamentalsService {
                         .ifValidationFails()
                         .when()
                         .body(body)
-                        .pathParam("human_id", idParam)
+                        .pathParam(HUMAN_ID, idParam)
                         .patch(HUMAN_BY_ID.getEndpoint())
                         .then()
                         .log()
@@ -171,13 +178,17 @@ public class FundamentalsService {
     }
 
     public static Response getLimitedResource(int httpStatus){
+
+        RequestSpecification requestSpecification =
+                createWithCredentials(USERNAME, PASSWORD);
+
         return
                 given()
                         .log()
                         .ifValidationFails()
-                        .spec()
+                        .spec(requestSpecification)
                         .when()
-                        .delete(HUMAN_BY_ID.getEndpoint())
+                        .get(LIMITED.getEndpoint())
                         .then()
                         .log()
                         .ifValidationFails()
