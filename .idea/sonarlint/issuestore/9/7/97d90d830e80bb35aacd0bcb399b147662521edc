@@ -1,0 +1,7 @@
+
+o	java:S116"URename this field "first_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¬•œÿÿÿÿÿ
+n	java:S116"TRename this field "last_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÜ§ÿûÿÿÿÿ
+q
+java:S1104"VMake first_name a static final constant or non-public and provide accessors if needed.(Ù¬•œÿÿÿÿÿ
+p
+java:S1104"UMake last_name a static final constant or non-public and provide accessors if needed.(àÜ§ÿûÿÿÿÿ

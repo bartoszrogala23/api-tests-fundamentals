@@ -11,6 +11,7 @@ import static fundamentals.util.Values.LAST_NAME;
 import static org.apache.http.HttpStatus.SC_OK;
 
 class GetPeopleParamsTest {
+//    TODO: you can't hardcode it. use model.
     final String name = "Adam";
     final String lastName = "Marach";
 
