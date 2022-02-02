@@ -1,3 +1,16 @@
+io.restassured.specification.RequestSpecification public abstract RequestSpecification spec(RequestSpecification requestSpecificationToMerge)
+Add request data from a pre-defined specification. E.g.
+       RequestSpecification requestSpec = new RequestSpecBuilder().addParam("parameter1", "value1").build();
+
+       given().
+               spec(requestSpec).
+               param("parameter2", "value2").
+       when().
+              get("/something");
+
+
+This is useful when you want to reuse an entire specification across multiple requests.
+
 //model parser
 //package com.puma.plm.api.core.labellingpackagingservice;
 //

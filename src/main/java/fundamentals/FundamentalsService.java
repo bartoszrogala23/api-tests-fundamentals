@@ -169,4 +169,20 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response getLimitedResource(int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec()
+                        .when()
+                        .delete(HUMAN_BY_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }
