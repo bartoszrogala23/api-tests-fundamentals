@@ -266,4 +266,20 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response getHeaderCheck(int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .header("apikey","woohoo")
+                        .get(HEADER_CHECK.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }

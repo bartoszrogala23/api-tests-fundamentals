@@ -7,13 +7,9 @@ t
 Dsrc/test/resources/json/fundamentalsService/getResponseOkSchema.json,a\4\a48031a71fec4c660639a4c15938fc8f0e77df73
 ~
 Nsrc/test/java/fundamentals/successfulRequestsResponses/getResponse200Test.java,3\7\37cc7cbf5ca8f78e59a184330d9719a2e673dc54
-|
-Lsrc/test/java/fundamentals/successfulRequestsResponses/GetAllPeopleTest.java,f\e\fe94c460d5a989a215e4d50fc92c06fd0f41137f
 ]
 -src/main/java/fundamentals/models/People.java,9\7\97d90d830e80bb35aacd0bcb399b147662521edc
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 ‡
 Wsrc/test/java/fundamentals/successfulRequestsResponses/getResponseOkWithParamsTest.java,a\9\a99fa6ffd5558014d93bfc1637aa0c4616ca9d14
-y
-Isrc/test/java/fundamentals/successfulRequestsResponses/PostHumanTest.java,b\3\b356fc167792e2f94b12d3715206214b7eed3e91

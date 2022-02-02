@@ -19,7 +19,9 @@ public enum ServiceEndpoint {
 
     LIMITED(LOCAL_HOST.endpoint + "/limited"),
     THINGS(LOCAL_HOST.endpoint + "/things/{things_id}"),
-    SERVER_OPERATION(LOCAL_HOST.endpoint + "/server_operation/{operation_name}");
+    SERVER_OPERATION(LOCAL_HOST.endpoint + "/server_operation/{operation_name}"),
+
+    HEADER_CHECK(LOCAL_HOST.endpoint + "/header_check");
 
     private final String endpoint;
 }

@@ -1,7 +1,6 @@
 package fundamentals.clientErrorRequestsResponses;
 
 import fundamentals.FundamentalsService;
-import fundamentals.util.Util;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
