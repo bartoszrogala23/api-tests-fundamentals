@@ -1,21 +1,20 @@
 package fundamentals;
 
-import fundamentals.util.Util;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
 
 import static fundamentals.ServiceEndpoint.*;
-import static fundamentals.util.Util.createWithCredentials;
+import static fundamentals.util.Util.setupUsingCredentials;
 import static fundamentals.util.Values.PASSWORD;
 import static fundamentals.util.Values.USERNAME;
 import static io.restassured.RestAssured.given;
 
 public class FundamentalsService {
 
-    private final static String HUMAN_ID ="human_id";
+    private static final String HUMAN_ID ="human_id";
+    private static final String THINGS_ID ="things_id";
 
     public static Response getResponseOk(int httpStatus) {
         return
@@ -180,7 +179,13 @@ public class FundamentalsService {
     public static Response getLimitedResource(int httpStatus){
 
         RequestSpecification requestSpecification =
-                createWithCredentials(USERNAME, PASSWORD);
+                setupUsingCredentials(USERNAME, PASSWORD);
+
+//        popatrz po RequestSpec -> setAuth. byc moze bedziesz inaczej budowac autoryzację.
+//        RequestSpecification requestSpecification2 = new RequestSpecBuilder()
+//                .setAuth("Username",USERNAME )
+//                .addParam("password",PASSWORD)
+//                .build();
 
         return
                 given()
@@ -189,6 +194,54 @@ public class FundamentalsService {
                         .spec(requestSpecification)
                         .when()
                         .get(LIMITED.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getThingId(int idParam, int httpStatus){
+        return
+                given()
+                        .log()
+                        .all()
+                        .when()
+                        .pathParam(THINGS_ID, idParam)
+                        .get(THINGS.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response putThingId(int idParam, int httpStatus){
+        return
+                given()
+                        .log()
+                        .all()
+                        .when()
+                        .pathParam(THINGS_ID, idParam)
+                        .put(THINGS.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response postThingId(int idParam, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParam(THINGS_ID, idParam)
+                        .post(THINGS.getEndpoint())
                         .then()
                         .log()
                         .ifValidationFails()

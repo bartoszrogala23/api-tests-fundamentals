@@ -17,7 +17,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class getAllPeopleSlicedTest {
+class GetAllPeopleSlicedTest {
     int fromNumber = 10;
     int upToNumber = 15;
 

@@ -13,7 +13,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class getResponseOkWithParamsTest {
+class GetResponseOkWithParamsTest {
 
     String name = "Jose";
     String middleName = "Maria";

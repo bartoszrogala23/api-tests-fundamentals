@@ -9,7 +9,7 @@ import static fundamentals.FundamentalsServiceSpecification.getSchema;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 
-class getResponse200Test {
+class GetResponse200Test {
 
     @Test
     @DisplayName("check if 200 received")
