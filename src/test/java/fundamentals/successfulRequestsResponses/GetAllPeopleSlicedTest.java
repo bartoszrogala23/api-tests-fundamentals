@@ -18,17 +18,11 @@ import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
 class GetAllPeopleSlicedTest {
-    int fromNumber = 10;
-    int upToNumber = 15;
 
     @Test
     @DisplayName("check if response is sliced by query parameters test")
     void getSlicedResponseUsingParamsTest() {
         var softly = new SoftAssertions();
-        Map<String, Object> params = Maps.of(
-                "from_number", fromNumber,
-                "up_to_number", upToNumber
-        );
 
         var response = FundamentalsService.getAllPeopleSliced(getSingleRecordByNumberFromPeople(), SC_OK);
 
@@ -44,6 +38,8 @@ class GetAllPeopleSlicedTest {
     @Test
     @DisplayName("check if response does not accept invalid variable type test")
     void getResponseUsingInvalidParamsTest() {
+        int upToNumber = 15;
+
         Map<String, Object> params = Maps.of(
                 "from_number", INVALID_VALUE,
                 "up_to_number", upToNumber

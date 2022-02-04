@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.apache.http.HttpStatus.SC_OK;
 
-public class getLimitedResourceTest {
+class getLimitedResourceTest {
 
     @Test
     @DisplayName("get limited resources using credentials")
