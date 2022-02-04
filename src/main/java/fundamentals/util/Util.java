@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import fundamentals.models.People;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.specification.AuthenticationSpecification;
 import io.restassured.specification.RequestSpecification;
 import lombok.NoArgsConstructor;
 import org.apache.groovy.util.Maps;
@@ -51,6 +50,9 @@ public class Util {
     }
 
     public static People createRandomBody() {
-        return People.builder().first_name(faker.name().firstName()).last_name(faker.name().lastName()).build();
+        return People.builder()
+                .first_name(faker.name().firstName())
+                .last_name(faker.name().lastName())
+                .build();
     }
 }
