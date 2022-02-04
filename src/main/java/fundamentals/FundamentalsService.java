@@ -282,4 +282,20 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response getCurrentUser(int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .spec(setupUsingCredentials("SeniorSiarra","JurekKiler"))
+                        .get(READ_CURRENT_USER.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }

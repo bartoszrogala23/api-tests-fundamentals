@@ -21,7 +21,9 @@ public enum ServiceEndpoint {
     THINGS(LOCAL_HOST.endpoint + "/things/{things_id}"),
     SERVER_OPERATION(LOCAL_HOST.endpoint + "/server_operation/{operation_name}"),
 
-    HEADER_CHECK(LOCAL_HOST.endpoint + "/header_check");
+    HEADER_CHECK(LOCAL_HOST.endpoint + "/header_check"),
+
+    READ_CURRENT_USER(LOCAL_HOST.endpoint + "/users/me");
 
     private final String endpoint;
 }
