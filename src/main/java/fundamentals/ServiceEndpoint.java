@@ -23,7 +23,10 @@ public enum ServiceEndpoint {
 
     HEADER_CHECK(LOCAL_HOST.endpoint + "/header_check"),
 
-    READ_CURRENT_USER(LOCAL_HOST.endpoint + "/users/me");
+    READ_CURRENT_USER(LOCAL_HOST.endpoint + "/users/me"),
+
+    IMAGES(LOCAL_HOST.endpoint + "/images"),
+    IMAGES_BY_TEXT(LOCAL_HOST.endpoint + "/images_by_text");
 
     private final String endpoint;
 }
