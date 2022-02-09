@@ -359,4 +359,35 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response logUser(String body, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .body(body)
+                        .post(COOKIES_LOGIN.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getInfoForLoggedUser (int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .get(COOKIES_FOR_LOGGED_USERS.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }
