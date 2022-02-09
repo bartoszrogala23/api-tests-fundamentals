@@ -343,4 +343,20 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response registerUser(String body, int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .body(body)
+                        .post(COOKIES_REGISTER.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }

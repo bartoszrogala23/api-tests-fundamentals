@@ -7,8 +7,6 @@ $.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1
 Nsrc/test/java/fundamentals/successfulRequestsResponses/getResponse200Test.java,3\7\37cc7cbf5ca8f78e59a184330d9719a2e673dc54
 ‡
 Wsrc/test/java/fundamentals/successfulRequestsResponses/getResponseOkWithParamsTest.java,a\9\a99fa6ffd5558014d93bfc1637aa0c4616ca9d14
-[
-+src/main/java/fundamentals/util/Values.java,2\1\21325355ca9ccb744594d18985c873fc983e0136
 ~
 Nsrc/test/java/fundamentals/successfulRequestsResponses/GetResponse200Test.java,b\4\b463fa0f398e41c0d5c530df766ad1b731fbf3a6
 z
@@ -43,5 +41,3 @@ x
 Hsrc/test/java/fundamentals/clientErrorRequestsResponses/ThingIdTest.java,2\2\22c7a617711e0e22f3862e1be1e042d3aeadbb81
 ‚
 Rsrc/test/java/fundamentals/successfulRequestsResponses/GetAllPeopleSlicedTest.java,e\d\ede0da95eee8ca1ad574f6a1023e7a57c74c1923
-]
--src/main/java/fundamentals/models/People.java,9\7\97d90d830e80bb35aacd0bcb399b147662521edc
