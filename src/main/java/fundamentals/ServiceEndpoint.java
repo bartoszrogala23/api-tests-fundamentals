@@ -26,7 +26,12 @@ public enum ServiceEndpoint {
     READ_CURRENT_USER(LOCAL_HOST.endpoint + "/users/me"),
 
     IMAGES(LOCAL_HOST.endpoint + "/images"),
-    IMAGES_BY_TEXT(LOCAL_HOST.endpoint + "/images_by_text");
+    IMAGES_BY_TEXT(LOCAL_HOST.endpoint + "/images_by_text"),
+
+    COOKIES_INFO("/cookie_info"),
+    COOKIES_REGISTER("/register"),
+    COOKIES_LOGIN("/login"),
+    COOKIES_FOR_LOGGED_USERS("/for_logged_in_users_only");
 
     private final String endpoint;
 }

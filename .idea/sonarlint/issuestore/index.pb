@@ -3,8 +3,6 @@ L
 .idea/codeStyles/Project.xml,6\e\6ecd6000a7b6f4a2884412ff19f74193ed089648
 T
 $.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1cba
-t
-Dsrc/test/resources/json/fundamentalsService/getResponseOkSchema.json,a\4\a48031a71fec4c660639a4c15938fc8f0e77df73
 ~
 Nsrc/test/java/fundamentals/successfulRequestsResponses/getResponse200Test.java,3\7\37cc7cbf5ca8f78e59a184330d9719a2e673dc54
 ‡
@@ -29,11 +27,21 @@ Wsrc/test/java/fundamentals/successfulRequestsResponses/GetResponseOkWithParamsT
 Qsrc/test/java/fundamentals/successfulRequestsResponses/GetAllPeoplePagedTest.java,d\4\d436c21bfa2971f3a0636172964f383a7a80ee89
 {
 Ksrc/test/java/fundamentals/successfulRequestsResponses/DeleteHumanTest.java,f\6\f6165e42aa8f8c1e1b4268433ec203495962d2f0
-p
-@src/test/java/fundamentals/FundamentalsServiceSpecification.java,6\c\6cd37fce7dc4f1ad434200f764856740aa60ad01
 c
 3src/main/java/fundamentals/util/ResponseParser.java,7\0\70bc8e3a9b8a5c7bc3a5fd88c16efa2aada2b484
 `
 0src/main/java/fundamentals/util/ModelParser.java,7\e\7e346673fc0cf4304d5030ad90e8b9aacaa46f61
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+
+Osrc/test/java/fundamentals/successfulRequestsResponses/GetPeopleParamsTest.java,9\b\9becf9759c675f8605a1e2cd8aa6973af155478e
+Y
+)src/main/java/fundamentals/util/Util.java,5\3\53444c1bac45ff74b88c8fec52ab31b9c379ebc5
+ƒ
+Ssrc/test/java/fundamentals/clientErrorRequestsResponses/getLimitedResourceTest.java,1\9\191530015566e27532b24ebeb8fd96291cb3ffbd
+x
+Hsrc/test/java/fundamentals/clientErrorRequestsResponses/ThingIdTest.java,2\2\22c7a617711e0e22f3862e1be1e042d3aeadbb81
+‚
+Rsrc/test/java/fundamentals/successfulRequestsResponses/GetAllPeopleSlicedTest.java,e\d\ede0da95eee8ca1ad574f6a1023e7a57c74c1923
+]
+-src/main/java/fundamentals/models/People.java,9\7\97d90d830e80bb35aacd0bcb399b147662521edc

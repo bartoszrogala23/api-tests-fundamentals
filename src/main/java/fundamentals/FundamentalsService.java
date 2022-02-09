@@ -298,4 +298,49 @@ public class FundamentalsService {
                         .extract()
                         .response();
     }
+
+    public static Response getImage(int httpStatus){
+        return
+        given()
+                .log()
+                .ifValidationFails()
+                .when()
+                .get(IMAGES.getEndpoint())
+                .then()
+                .log()
+                .ifValidationFails()
+                .statusCode(httpStatus)
+                .extract()
+                .response();
+    }
+
+    public static Response getImageByText(int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .get(IMAGES_BY_TEXT.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getCookies(int httpStatus){
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .get(COOKIES_INFO.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }
