@@ -15,12 +15,11 @@ class DeleteHumanTest {
     void deleteHumanTest() {
 
         var softly = new SoftAssertions();
-         int randomId = getRandomId();
+        int randomId = getRandomId();
 
         var response = FundamentalsService.deleteHuman(randomId, SC_ACCEPTED);
 
-       softly.assertThat(response.body().asString()).contains
-               ("Human at index " + randomId + " deleted.");
+        softly.assertThat(response.body().asString()).contains
+                ("Human at index " + randomId + " deleted.");
     }
-
 }

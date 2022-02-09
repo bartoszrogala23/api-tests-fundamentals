@@ -13,7 +13,6 @@ import static fundamentals.util.Values.PASSWORD;
 import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.apache.http.HttpStatus.SC_CREATED;
-import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
 class RegisterTest {
     SoftAssertions softly = new SoftAssertions();
