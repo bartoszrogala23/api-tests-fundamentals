@@ -27,8 +27,8 @@ class ForLoggedUsersTest {
         Credentials user = setUser(userName, PASSWORD);
 
         FundamentalsService.registerUser(toJson(user), SC_CREATED);
-        Map<String,String> cookies = FundamentalsService.logUser(toJson(user), SC_ACCEPTED).getCookies();
 
+        Map<String,String> cookies = FundamentalsService.logUser(toJson(user), SC_ACCEPTED).getCookies();
         var response = FundamentalsService.getInfoForLoggedUser(cookies, SC_OK);
 
         softly.assertThat(response.body().asString())

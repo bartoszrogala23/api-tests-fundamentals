@@ -13,8 +13,6 @@ z
 Jsrc/test/java/fundamentals/successfulRequestsResponses/PatchHumanTest.java,c\f\cf52f0c4216389e06ce2c0eb0031759544d39c92
 €
 Psrc/test/java/fundamentals/clientErrorRequestsResponses/ServerOperationTest.java,b\a\ba99bc91c1fff2071fa35786a3328a4e63581dc2
-x
-Hsrc/test/java/fundamentals/successfulRequestsResponses/PutHumanTest.java,2\e\2eeead87f88e5dc2534f2d39af03dcb219ada45f
 y
 Isrc/test/java/fundamentals/successfulRequestsResponses/PostHumanTest.java,b\3\b356fc167792e2f94b12d3715206214b7eed3e91
 ‡
@@ -23,9 +21,5 @@ c
 3src/main/java/fundamentals/util/ResponseParser.java,7\0\70bc8e3a9b8a5c7bc3a5fd88c16efa2aada2b484
 `
 0src/main/java/fundamentals/util/ModelParser.java,7\e\7e346673fc0cf4304d5030ad90e8b9aacaa46f61
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-ƒ
-Ssrc/test/java/fundamentals/clientErrorRequestsResponses/getLimitedResourceTest.java,1\9\191530015566e27532b24ebeb8fd96291cb3ffbd
 x
 Hsrc/test/java/fundamentals/clientErrorRequestsResponses/ThingIdTest.java,2\2\22c7a617711e0e22f3862e1be1e042d3aeadbb81

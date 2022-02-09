@@ -11,13 +11,11 @@ class getLimitedResourceTest {
 
     @Test
     @DisplayName("get limited resources using credentials")
-
-    public void getLimitedResourcesTest() {
+    void getLimitedResourcesTest() {
         var softly = new SoftAssertions();
 
         var response = FundamentalsService.getLimitedResource(SC_OK);
 
-      softly.assertThat(response.body().asString()).contains("The sausage is allowed for the Captain_snack.");
-
+        softly.assertThat(response.body().asString()).contains("The sausage is allowed for the Captain_snack.");
     }
 }

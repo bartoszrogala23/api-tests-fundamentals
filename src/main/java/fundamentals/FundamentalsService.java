@@ -181,12 +181,6 @@ public class FundamentalsService {
         RequestSpecification requestSpecification =
                 setupUsingCredentials(USERNAME, PASSWORD);
 
-//        popatrz po RequestSpec -> setAuth. byc moze bedziesz inaczej budowac autoryzację.
-//        RequestSpecification requestSpecification2 = new RequestSpecBuilder()
-//                .setAuth("Username",USERNAME )
-//                .addParam("password",PASSWORD)
-//                .build();
-
         return
                 given()
                         .log()
