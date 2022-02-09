@@ -7,6 +7,8 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static fundamentals.FundamentalsServiceSpecification.setUser;
 import static fundamentals.util.Values.PASSWORD;
 import static groovy.json.JsonOutput.toJson;
@@ -25,7 +27,12 @@ class ForLoggedUsersTest {
         Credentials user = setUser(userName, PASSWORD);
 
         FundamentalsService.registerUser(toJson(user), SC_CREATED);
-        FundamentalsService.logUser(toJson(user), SC_ACCEPTED);
-        FundamentalsService.getInfoForLoggedUser(SC_OK);
+        Map<String,String> cookies = FundamentalsService.logUser(toJson(user), SC_ACCEPTED).getCookies();
+
+        var response = FundamentalsService.getInfoForLoggedUser(cookies, SC_OK);
+
+        softly.assertThat(response.body().asString())
+                .contains("Observe this fully operational battle station, young " + userName);
+        softly.assertAll();
     }
 }

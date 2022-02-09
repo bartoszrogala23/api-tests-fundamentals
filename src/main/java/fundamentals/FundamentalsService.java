@@ -376,12 +376,13 @@ public class FundamentalsService {
                         .response();
     }
 
-    public static Response getInfoForLoggedUser (int httpStatus){
+    public static Response getInfoForLoggedUser (Map<String,String> cookies, int httpStatus){
         return
                 given()
                         .log()
                         .ifValidationFails()
                         .when()
+                        .cookies(cookies)
                         .get(COOKIES_FOR_LOGGED_USERS.getEndpoint())
                         .then()
                         .log()
