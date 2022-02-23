@@ -25,10 +25,6 @@ g
 7src/test/java/fundamentals/servingImages/ImageTest.java,0\7\07c5d8c43681542df81a8ad64c339955d2ce9dc2
 _
 /src/main/java/fundamentals/ServiceEndpoint.java,e\c\ec04809df774cdc01844e55aba5d4734851f9f26
-Y
-)src/main/java/fundamentals/util/Util.java,5\3\53444c1bac45ff74b88c8fec52ab31b9c379ebc5
-|
-Lsrc/test/java/fundamentals/successfulRequestsResponses/GetAllPeopleTest.java,f\e\fe94c460d5a989a215e4d50fc92c06fd0f41137f
 Ç
 Rsrc/test/java/fundamentals/successfulRequestsResponses/GetAllPeopleSlicedTest.java,e\d\ede0da95eee8ca1ad574f6a1023e7a57c74c1923
 Å
