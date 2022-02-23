@@ -1,10 +1,8 @@
 package fundamentals.cookies;
 
-import com.github.javafaker.Faker;
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
-import fundamentals.FundamentalsServiceSpecification;
-import fundamentals.models.Credentials;
-import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +12,17 @@ import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.apache.http.HttpStatus.SC_CREATED;
 
-class RegisterTest {
-    SoftAssertions softly = new SoftAssertions();
-    Faker faker = new Faker();
+class RegisterTest extends FundamentalsBase {
+    String user;
+
+    @BeforeEach
+    public void setup(){
+        user = faker.name().username();
+    }
 
     @Test
     @DisplayName("register user test")
     void registerUserTest() {
-        String user = faker.name().username();
 
         var response = FundamentalsService.registerUser(toJson(setUser(user, PASSWORD)), SC_CREATED);
 
@@ -33,7 +34,6 @@ class RegisterTest {
     @Test
     @DisplayName("Try create existing user test")
     void registerExistingUserTest() {
-        String user = faker.name().username();
 
         FundamentalsService.registerUser(toJson(setUser(user, PASSWORD)), SC_CREATED);
         var response = FundamentalsService.registerUser(toJson(setUser(user, PASSWORD)), SC_BAD_REQUEST);

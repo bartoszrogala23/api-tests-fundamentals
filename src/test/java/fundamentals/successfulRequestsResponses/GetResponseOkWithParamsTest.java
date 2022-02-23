@@ -1,8 +1,8 @@
 package fundamentals.successfulRequestsResponses;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.apache.groovy.util.Maps;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,18 +13,16 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class GetResponseOkWithParamsTest {
+class GetResponseOkWithParamsTest extends FundamentalsBase {
 
     String name = "Jose";
     String middleName = "Maria";
     String lastName = "Gonzales";
     int height = 10;
 
-
     @Test
     @DisplayName("check if 200 received using query parameters")
     void getResponseUsingParamsTest() {
-        var softly = new SoftAssertions();
 
         Map<String, Object> params = Maps.of(
                 "first_name", name,

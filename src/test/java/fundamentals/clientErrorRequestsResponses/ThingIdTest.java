@@ -1,7 +1,7 @@
 package fundamentals.clientErrorRequestsResponses;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,12 +11,11 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class ThingIdTest {
+class ThingIdTest extends FundamentalsBase {
 
     @Test
     @DisplayName("try to get thing id test")
     void getThingIdTes() {
-        var softly = new SoftAssertions();
 
         var response = FundamentalsService.getThingId(getRandomId(), SC_NOT_FOUND);
 

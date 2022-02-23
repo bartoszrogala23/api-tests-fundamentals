@@ -1,18 +1,17 @@
 package fundamentals.cookies;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.http.HttpStatus.SC_OK;
 
-class CookiesInfo {
+class CookiesInfo extends FundamentalsBase {
 
     @Test
     @DisplayName("get cookies test")
     void getCookieInfoTest() {
-        var softly = new SoftAssertions();
 
         var response = FundamentalsService.getCookies(SC_OK);
 

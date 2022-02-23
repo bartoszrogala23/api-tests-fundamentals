@@ -1,5 +1,6 @@
 package fundamentals.successfulRequestsResponses;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,12 +10,11 @@ import static fundamentals.FundamentalsServiceSpecification.getSchema;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 
-class GetResponse200Test {
+class GetResponse200Test extends FundamentalsBase {
 
     @Test
     @DisplayName("check if 200 received")
     void getResponseOkTest() {
-        SoftAssertions softly = new SoftAssertions();
 
         var response = FundamentalsService.getResponseOk(SC_OK);
 

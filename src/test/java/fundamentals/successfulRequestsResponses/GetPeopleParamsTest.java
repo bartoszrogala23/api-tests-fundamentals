@@ -1,10 +1,9 @@
 package fundamentals.successfulRequestsResponses;
 
-import com.google.gson.Gson;
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import fundamentals.models.People;
 import io.restassured.response.Response;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,10 +16,8 @@ import static fundamentals.util.Values.LAST_NAME;
 import static java.util.Arrays.stream;
 import static org.apache.http.HttpStatus.SC_OK;
 
-class GetPeopleParamsTest {
+class GetPeopleParamsTest extends FundamentalsBase {
 
-    Gson gson = new Gson();
-    SoftAssertions softly = new SoftAssertions();
     Response singleRecord;
     People[] human;
 

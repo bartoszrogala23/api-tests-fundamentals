@@ -1,6 +1,7 @@
 package fundamentals.cookies;
 
 import com.github.javafaker.Faker;
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import fundamentals.models.Credentials;
 import org.assertj.core.api.SoftAssertions;
@@ -16,9 +17,7 @@ import static org.apache.http.HttpStatus.SC_ACCEPTED;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 
-class ForLoggedUsersTest {
-    SoftAssertions softly = new SoftAssertions();
-    Faker faker = new Faker();
+class ForLoggedUsersTest extends FundamentalsBase {
 
     @Test
     @DisplayName("get info for logged users test")

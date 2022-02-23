@@ -1,5 +1,6 @@
 package fundamentals.successfulRequestsResponses;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.apache.groovy.util.Maps;
 import org.assertj.core.api.SoftAssertions;
@@ -16,13 +17,11 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class GetAllPeoplePagedTest {
-
+class GetAllPeoplePagedTest extends FundamentalsBase {
 
     @Test
     @DisplayName("check if response is sliced by query parameters test")
     void getSlicedResponseUsingParamsTest() {
-        var softly = new SoftAssertions();
         Map<String, Object> params = Maps.of(
                 "page_size", PAGE_SIZE_VALUE,
                 "page_number", PAGE_NUMBER_VALUE
