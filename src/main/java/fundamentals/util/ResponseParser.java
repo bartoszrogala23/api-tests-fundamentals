@@ -11,6 +11,4 @@ public class ResponseParser {
     public static Object parseHuman(Response response, Class<People> peopleClass) {
        return gson.fromJson(response.toString(), People.class);
     }
-
-//    People human= gson.fromJson(reader, People.class);
 }

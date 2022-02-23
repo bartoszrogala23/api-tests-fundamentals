@@ -6,13 +6,13 @@ import fundamentals.models.People;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import static fundamentals.FundamentalsService.getAllPeopleSliced;
 import static fundamentals.util.Util.getSingleRecordByNumberFromPeople;
 import static fundamentals.util.Values.FIRST_NAME;
 import static fundamentals.util.Values.LAST_NAME;
+import static java.util.Arrays.stream;
 import static org.apache.http.HttpStatus.SC_OK;
 
 class GetPeopleParamsTest {
@@ -24,7 +24,7 @@ class GetPeopleParamsTest {
     void getPeopleUsingNameOnlyTest() {
         var singleRecord = getAllPeopleSliced(getSingleRecordByNumberFromPeople(), SC_OK);
         People[] human = gson.fromJson(singleRecord.body().asString(), People[].class);
-        String name = Arrays.stream(human).findFirst().get().first_name;
+        String name = stream(human).iterator().next().getFirst_name();
         Map<String, Object> params = Map.of(
                 FIRST_NAME, name
         );
@@ -39,7 +39,7 @@ class GetPeopleParamsTest {
     void getPeopleUsingLastNameOnlyTest() {
         var singleRecord = getAllPeopleSliced(getSingleRecordByNumberFromPeople(), SC_OK);
         People[] human = gson.fromJson(singleRecord.body().asString(), People[].class);
-        String lastName = Arrays.stream(human).findFirst().get().last_name;
+        String lastName = stream(human).iterator().next().getLast_name();
         Map<String, Object> params = Map.of(
                 LAST_NAME, lastName
         );
@@ -54,9 +54,9 @@ class GetPeopleParamsTest {
     void getPeopleUsingAllParamsTest() {
         var singleRecord = getAllPeopleSliced(getSingleRecordByNumberFromPeople(), SC_OK);
         People[] human = gson.fromJson(singleRecord.body().asString(), People[].class);
-        String name = Arrays.stream(human).findFirst().get().first_name;
-        String lastName = Arrays.stream(human).findFirst().get().last_name;
-        Map<String, Object> params = Map.of(
+        String name = stream(human).iterator().next().first_name;
+        String lastName = stream(human).iterator().next().last_name;
+         Map<String, Object> params = Map.of(
                 FIRST_NAME, name,
                 LAST_NAME, lastName
         );
