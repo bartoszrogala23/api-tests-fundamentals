@@ -14,7 +14,7 @@ import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 class ThingIdTest extends FundamentalsBase {
 
     @Test
-    @DisplayName("try to get thing id test")
+    @DisplayName("try to GET thing id test")
     void getThingIdTes() {
 
         var response = FundamentalsService.getThingId(getRandomId(), SC_NOT_FOUND);
@@ -24,25 +24,25 @@ class ThingIdTest extends FundamentalsBase {
     }
 
     @Test
-    @DisplayName("try to put thing id test")
+    @DisplayName("try to PUT thing id test")
     void putThingIdTes() {
 
         var response = FundamentalsService.putThingId(getRandomId(), SC_UNPROCESSABLE_ENTITY);
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("ThingIdUnprocessableEntitySchema")));
+                .body(matchesJsonSchemaInClasspath(fundamentalsIdUnprocessableEntity));
     }
 
     @Test
-    @DisplayName("try to post thing id test")
+    @DisplayName("try to POST thing id test")
     void postThingIdTes() {
 
         var response = FundamentalsService.postThingId(getRandomId(), SC_UNPROCESSABLE_ENTITY);
 
                        response
                                .then()
-                               .body(matchesJsonSchemaInClasspath(getSchema("ThingIdUnprocessableEntitySchema")));
+                               .body(matchesJsonSchemaInClasspath(fundamentalsIdUnprocessableEntity));
 
     }
 }

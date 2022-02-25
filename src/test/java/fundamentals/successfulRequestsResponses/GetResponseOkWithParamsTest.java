@@ -55,6 +55,6 @@ class GetResponseOkWithParamsTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("queryParamsValidationErrorSchema")));
+                .body(matchesJsonSchemaInClasspath(queryParams));
     }
 }

@@ -3,7 +3,6 @@ package fundamentals.successfulRequestsResponses;
 import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.apache.groovy.util.Maps;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +48,6 @@ class GetAllPeopleSlicedTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("queryParamsValidationErrorSchema")));
+                .body(matchesJsonSchemaInClasspath(queryParams));
     }
 }

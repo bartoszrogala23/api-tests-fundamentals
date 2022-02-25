@@ -1,10 +1,10 @@
 package fundamentals.successfulRequestsResponses;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static fundamentals.FundamentalsServiceSpecification.getSchema;
 import static fundamentals.util.Util.createRandomBody;
 import static fundamentals.util.Values.INVALID_VALUE;
 import static groovy.json.JsonOutput.toJson;
@@ -12,7 +12,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class PostHumanTest {
+class PostHumanTest extends FundamentalsBase {
     @Test
     @DisplayName("add new record test")
     void createNewHumanTest() {
@@ -21,7 +21,7 @@ class PostHumanTest {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("postPeopleSchema")));
+                .body(matchesJsonSchemaInClasspath(postPeople));
     }
 
     @Test
@@ -32,6 +32,6 @@ class PostHumanTest {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("humanInvalidResultSchema")));
+                .body(matchesJsonSchemaInClasspath(humanInvalidResult));
     }
 }

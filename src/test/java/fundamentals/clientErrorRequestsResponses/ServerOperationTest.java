@@ -1,14 +1,14 @@
 package fundamentals.clientErrorRequestsResponses;
 
+import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static fundamentals.FundamentalsServiceSpecification.getSchema;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 
-class ServerOperationTest {
+class ServerOperationTest extends FundamentalsBase {
     @Test
     @DisplayName("try to put unprocessable entity")
     void putServerOperation() {
@@ -20,6 +20,6 @@ class ServerOperationTest {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("ServerOperationUnprocessableEntitySchema")));
+                .body(matchesJsonSchemaInClasspath(fundamentalsServerUnprocessableEntity));
     }
 }

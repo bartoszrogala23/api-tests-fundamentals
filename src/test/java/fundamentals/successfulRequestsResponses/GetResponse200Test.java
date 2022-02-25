@@ -2,11 +2,9 @@ package fundamentals.successfulRequestsResponses;
 
 import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static fundamentals.FundamentalsServiceSpecification.getSchema;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 
@@ -20,7 +18,7 @@ class GetResponse200Test extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("getResponseOkSchema")));
+                .body(matchesJsonSchemaInClasspath(getResponse));
 
         softly.assertThat(response.body().asString())
                 .contains("This is GET example for status code 200");

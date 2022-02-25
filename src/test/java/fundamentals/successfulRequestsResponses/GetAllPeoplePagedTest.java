@@ -3,13 +3,11 @@ package fundamentals.successfulRequestsResponses;
 import fundamentals.FundamentalsBase;
 import fundamentals.FundamentalsService;
 import org.apache.groovy.util.Maps;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static fundamentals.FundamentalsServiceSpecification.getSchema;
 import static fundamentals.util.Values.INVALID_VALUE;
 import static fundamentals.util.Values.PAGE_NUMBER_VALUE;
 import static fundamentals.util.Values.PAGE_SIZE_VALUE;
@@ -31,7 +29,7 @@ class GetAllPeoplePagedTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("getPeopleSchema")));
+                .body(matchesJsonSchemaInClasspath(getPeople));
 
         softly.assertThat(response.body().asString()).contains("first_name", "last_name");
         softly.assertAll();
@@ -49,6 +47,6 @@ class GetAllPeoplePagedTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getSchema("queryParamsValidationErrorSchema")));
+                .body(matchesJsonSchemaInClasspath(queryParams));
     }
 }
