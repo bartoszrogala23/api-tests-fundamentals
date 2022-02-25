@@ -48,6 +48,6 @@ class GetAllPeopleSlicedTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(queryParams));
+                .body(matchesJsonSchemaInClasspath(fundamentalsQueryParams));
     }
 }

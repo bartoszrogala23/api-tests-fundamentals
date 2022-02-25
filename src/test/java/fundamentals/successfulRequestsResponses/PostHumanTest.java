@@ -21,7 +21,7 @@ class PostHumanTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(postPeople));
+                .body(matchesJsonSchemaInClasspath(fundamentalsPostPeople));
     }
 
     @Test
@@ -32,6 +32,6 @@ class PostHumanTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(humanInvalidResult));
+                .body(matchesJsonSchemaInClasspath(fundamentalsHumanInvalidResult));
     }
 }

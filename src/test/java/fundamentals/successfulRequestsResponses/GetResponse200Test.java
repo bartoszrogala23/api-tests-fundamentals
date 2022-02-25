@@ -18,7 +18,7 @@ class GetResponse200Test extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getResponse));
+                .body(matchesJsonSchemaInClasspath(fundamentalsGetResponse));
 
         softly.assertThat(response.body().asString())
                 .contains("This is GET example for status code 200");

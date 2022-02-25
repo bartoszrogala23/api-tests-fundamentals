@@ -18,7 +18,7 @@ class GetAllPeopleTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(getPeople));
+                .body(matchesJsonSchemaInClasspath(fundamentalsGetPeople));
 
         softly.assertThat(response.body().asString()).contains("first_name", "last_name");
         softly.assertAll();

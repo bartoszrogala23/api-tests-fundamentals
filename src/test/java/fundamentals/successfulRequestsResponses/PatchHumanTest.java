@@ -24,7 +24,7 @@ class PatchHumanTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(putHuman));
+                .body(matchesJsonSchemaInClasspath(fundamentalsPutHuman));
     }
 
     @Test
@@ -36,6 +36,6 @@ class PatchHumanTest extends FundamentalsBase {
 
         response
                 .then()
-                .body(matchesJsonSchemaInClasspath(putHumanId));
+                .body(matchesJsonSchemaInClasspath(fundamentalsPutHumanId));
     }
 }

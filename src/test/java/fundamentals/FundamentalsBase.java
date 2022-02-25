@@ -11,14 +11,14 @@ public abstract class FundamentalsBase  {
     public static SoftAssertions softly = new SoftAssertions();
     public static Faker faker = new Faker();
 
-    protected String putHuman = getSchema("putHumanCorrectSchema");
-    protected String getPeople = getSchema("getPeopleSchema");
-    protected String postPeople = getSchema("postPeopleSchema");
+    protected String fundamentalsPutHuman = getSchema("putHumanCorrectSchema");
+    protected String fundamentalsGetPeople = getSchema("getPeopleSchema");
+    protected String fundamentalsPostPeople = getSchema("postPeopleSchema");
     protected String fundamentalsServerUnprocessableEntity = getSchema("ServerOperationUnprocessableEntitySchema");
     protected String fundamentalsIdUnprocessableEntity = getSchema("ThingIdUnprocessableEntitySchema");
-    protected String queryParams = getSchema("queryParamsValidationErrorSchema");
-    protected String getResponse = getSchema("getResponseOkSchema");
-    protected String putHumanId = getSchema("putHumanIdValidationErrorSchema");
-    protected String humanInvalidResult = getSchema("humanInvalidResultSchema");
+    protected String fundamentalsQueryParams = getSchema("queryParamsValidationErrorSchema");
+    protected String fundamentalsGetResponse = getSchema("getResponseOkSchema");
+    protected String fundamentalsPutHumanId = getSchema("putHumanIdValidationErrorSchema");
+    protected String fundamentalsHumanInvalidResult = getSchema("humanInvalidResultSchema");
 
 }
