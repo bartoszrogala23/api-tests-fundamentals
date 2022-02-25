@@ -1,0 +1,24 @@
+package reactor;
+
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.given;
+import static reactor.ServiceEndpoint.INFORMATION;
+
+public class ReactorService {
+
+    public static Response getInformation(int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .get(INFORMATION.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+}
