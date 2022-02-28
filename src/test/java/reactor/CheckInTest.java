@@ -2,23 +2,22 @@ package reactor;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import reactor.model.User;
 
 import static groovy.json.JsonOutput.toJson;
-import static org.apache.http.HttpStatus.SC_CREATED;
 import static reactor.Constans.CHECK_IN_MESSAGE;
+import static reactor.util.Parser.parseCheckInResponse;
+import static reactor.util.ReactorSpecification.userName;
 
 class CheckInTest extends ReactorBase {
     @Test
     @DisplayName("desk check in test")
     void postCheckInTest() {
-        User userName = User.builder().name(faker.name().fullName()).build();
+        final String user = toJson(userName);
 
-        var response = ReactorService.postCheckIn(toJson(userName), SC_CREATED);
+        var response = parseCheckInResponse(user);
+        response.getKey();
 
-        //TODO: extract key from response
-
-        softly.assertThat(response.body().asString()).contains(CHECK_IN_MESSAGE);
+        softly.assertThat(response.toString()).contains(CHECK_IN_MESSAGE);
         softly.assertAll();
     }
 }
