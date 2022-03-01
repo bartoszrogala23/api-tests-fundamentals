@@ -13,6 +13,6 @@ public class Parser {
     public static CheckIn parseCheckInResponse(String body) {
         var response = ReactorService.postCheckIn(body, SC_CREATED);
 
-        return gson.fromJson(response.body().asString(),CheckIn.class);
+        return gson.fromJson(response.body().asString(), CheckIn.class);
     }
 }

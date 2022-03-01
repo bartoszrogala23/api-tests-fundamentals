@@ -11,3 +11,15 @@ Wsrc/test/java/fundamentals/successfulRequestsResponses/getResponseOkWithParamsT
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 [
 +src/main/java/fundamentals/util/Values.java,2\1\21325355ca9ccb744594d18985c873fc983e0136
+c
+3src/main/java/fundamentals/util/ResponseParser.java,7\0\70bc8e3a9b8a5c7bc3a5fd88c16efa2aada2b484
+`
+0src/main/java/fundamentals/util/ModelParser.java,7\e\7e346673fc0cf4304d5030ad90e8b9aacaa46f61
+c
+3src/main/java/fundamentals/FundamentalsService.java,c\8\c8e2ca214923b63eb77f3cc50342c9739c130f24
+]
+-src/main/java/fundamentals/models/People.java,9\7\97d90d830e80bb35aacd0bcb399b147662521edc
+b
+2src/main/java/fundamentals/models/Credentials.java,3\3\33cf0f7bd76af1964dad9739838d1e440e440b84
+V
+&src/test/java/reactor/ReactorBase.java,a\2\a262a2bb6c15738562d22e32b03ed35fd159ac43
