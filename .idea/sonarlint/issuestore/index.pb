@@ -23,3 +23,17 @@ b
 2src/main/java/fundamentals/models/Credentials.java,3\3\33cf0f7bd76af1964dad9739838d1e440e440b84
 V
 &src/test/java/reactor/ReactorBase.java,a\2\a262a2bb6c15738562d22e32b03ed35fd159ac43
+Y
+)src/main/java/fundamentals/util/Util.java,5\3\53444c1bac45ff74b88c8fec52ab31b9c379ebc5
+`
+0src/test/java/fundamentals/FundamentalsBase.java,a\6\a6296646faef8a755f96146b008fdd90d02830d9
+Z
+*src/main/java/reactor/ServiceEndpoint.java,7\b\7b8f0343a133cd0eca2153f915b0a5365ce90bdb
+S
+#src/main/java/reactor/Constans.java,4\3\43655c7218841d9ef4a471873cb3b2d7f3f1462f
+p
+@src/test/java/fundamentals/FundamentalsServiceSpecification.java,6\c\6cd37fce7dc4f1ad434200f764856740aa60ad01
+U
+%src/main/java/reactor/model/User.java,b\5\b5e878428c5b83cf0b152f4478553d325e6dbbbf
+X
+(src/main/java/reactor/model/CheckIn.java,9\0\90057b31b2e92e36ec34069306143b370153419e
