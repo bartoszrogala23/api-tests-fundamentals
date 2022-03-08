@@ -3,7 +3,8 @@ package reactor.util;
 import com.google.gson.Gson;
 import reactor.ReactorService;
 import reactor.model.CheckIn;
-import reactor.model.reactor.Reactor;
+import reactor.model.Reactor;
+import reactor.model.ReactorData;
 
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;

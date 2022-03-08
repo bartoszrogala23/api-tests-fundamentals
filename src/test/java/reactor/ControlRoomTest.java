@@ -2,7 +2,9 @@ package reactor;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import reactor.model.User;
 
+import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static org.apache.http.HttpStatus.SC_OK;
 import static reactor.Constans.CAN_NOT_PASS;
@@ -15,18 +17,14 @@ class ControlRoomTest extends ReactorBase {
     @Test
     @DisplayName("control room test")
     void controlRoomTest() {
-        String user = createUser;
+        User user = createUser;
 
-        var checkIn = parseCheckInResponse(user);
+        var checkIn = parseCheckInResponse(toJson(user));
         String key = checkIn.getKey();
 
         var response  = ReactorService.getControlRoom(key,SC_OK);
 
         ReactorSpecification.setupReactorPower(key);
-//
-//        softly.assertThat(response.getBody().asString())
-//                .contains(key);
-//        softly.assertAll();
     }
 
     @Test
