@@ -12,4 +12,7 @@ public class Constans {
             "resource path to check on your RMBK-100 reactor! Use following: /{key}/control_room to gain knowledge how to operate reactor. You may see if the core is intact here: /{key}/reactor_core . If anything goes wrong push AZ-5 safety button to put all control rods in place!Good luck Commander.";
     public static final String REACTOR_DESCRIPTION = "Rieaktor Bolszoj Moszcznosti Kanalnyj - 1000 MW";
     public static final String CAN_NOT_PASS = "You're can't get pass this door comrade! ${flag_sneaky_rat}";
+    public static final String AZ5_CORRECT = "Afraid of a meltdown, huh?";
+    public static final String AZ5_FORBIDDEN = "He's not a Tech Commander! Meddling with Power Plant! Get him to " +
+            "KGB!!!";
 }
