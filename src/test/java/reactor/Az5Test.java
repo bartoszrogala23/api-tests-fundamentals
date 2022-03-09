@@ -3,6 +3,7 @@ package reactor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import reactor.model.CheckIn;
 
 import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
@@ -11,16 +12,18 @@ import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static reactor.Constants.AZ5_CORRECT;
 import static reactor.Constants.AZ5_FORBIDDEN;
+import static reactor.Constants.AZ5_INVALID;
 import static reactor.Constants.incorrectValue;
 import static reactor.ReactorSpecification.createUser;
 import static reactor.util.Parser.parseCheckInResponse;
 
 class Az5Test extends ReactorBase {
+    CheckIn checkIn;
     String key;
 
     @BeforeEach
     public void setup(){
-        var checkIn = parseCheckInResponse(toJson(createUser));
+        checkIn = parseCheckInResponse(toJson(createUser));
         key = checkIn.getKey();
     }
 
@@ -49,8 +52,9 @@ class Az5Test extends ReactorBase {
     @DisplayName("Az5 using incorrect body test")
     void Az5IncorrectBodyTest() {
 
-
         var response = ReactorService.putAz5(key, toJson(incorrectValue), SC_UNPROCESSABLE_ENTITY);
+
+        assertThat(response.getBody().asString()).contains(AZ5_INVALID);
 
     }
 }

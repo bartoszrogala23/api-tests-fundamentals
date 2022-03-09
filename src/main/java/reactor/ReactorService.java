@@ -3,10 +3,12 @@ package reactor;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
+import static reactor.ServiceEndpoint.ANALYSIS;
 import static reactor.ServiceEndpoint.AZ_5;
 import static reactor.ServiceEndpoint.CHECK_IN;
 import static reactor.ServiceEndpoint.CONTROL_ROOM;
 import static reactor.ServiceEndpoint.INFORMATION;
+import static reactor.ServiceEndpoint.REACTOR_CORE;
 
 public class ReactorService {
 
@@ -66,6 +68,38 @@ public class ReactorService {
                         .body(body)
                         .pathParam("key",key)
                         .put(AZ_5.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getReactorCore(String key, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParam("key",key)
+                        .get(REACTOR_CORE.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getAnalysis(String key, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParam("key",key)
+                        .get(ANALYSIS.getEndpoint())
                         .then()
                         .log()
                         .ifValidationFails()

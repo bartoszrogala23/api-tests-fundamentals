@@ -5,17 +5,14 @@ import reactor.util.Parser;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
-
 
 public class ReactorSpecification {
 
     public static User createUser = User.builder().name(generateUniqueValue()).build();
 
-//    public static String generateUniqueValue() {
-//        return String.valueOf(new Date().getTime());
-//    }
-    public static String generateUniqueValue() {return UUID.randomUUID().toString();}
+    public static String generateUniqueValue() {
+        return String.valueOf(new Date().getTime());
+    }
 
     public static void setupReactorPower(String key) {
         var reactor = Parser.parseControlRoom(key);
