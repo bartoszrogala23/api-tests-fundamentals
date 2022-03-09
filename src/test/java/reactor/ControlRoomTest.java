@@ -4,13 +4,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import reactor.model.User;
 
-import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static org.apache.http.HttpStatus.SC_OK;
 import static reactor.Constants.CAN_NOT_PASS;
 import static reactor.Constants.incorrectValue;
 import static reactor.ReactorSpecification.createUser;
-import static reactor.util.Parser.parseCheckInResponse;
 
 class ControlRoomTest extends ReactorBase {
 
@@ -18,9 +16,6 @@ class ControlRoomTest extends ReactorBase {
     @DisplayName("control room test")
     void controlRoomTest() {
         User user = createUser;
-
-        var checkIn = parseCheckInResponse(toJson(user));
-        String key = checkIn.getKey();
 
         var response  = ReactorService.getControlRoom(key,SC_OK);
 

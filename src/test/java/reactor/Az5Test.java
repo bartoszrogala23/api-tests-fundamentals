@@ -14,18 +14,8 @@ import static reactor.Constants.AZ5_CORRECT;
 import static reactor.Constants.AZ5_FORBIDDEN;
 import static reactor.Constants.AZ5_INVALID;
 import static reactor.Constants.incorrectValue;
-import static reactor.ReactorSpecification.createUser;
-import static reactor.util.Parser.parseCheckInResponse;
 
 class Az5Test extends ReactorBase {
-    CheckIn checkIn;
-    String key;
-
-    @BeforeEach
-    public void setup(){
-        checkIn = parseCheckInResponse(toJson(createUser));
-        key = checkIn.getKey();
-    }
 
     @Test
     @DisplayName("Az5 using true value test")
