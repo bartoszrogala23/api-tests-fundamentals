@@ -9,6 +9,7 @@ import static reactor.ServiceEndpoint.CHECK_IN;
 import static reactor.ServiceEndpoint.CONTROL_ROOM;
 import static reactor.ServiceEndpoint.INFORMATION;
 import static reactor.ServiceEndpoint.REACTOR_CORE;
+import static reactor.ServiceEndpoint.RESET_PROGRESS;
 
 public class ReactorService {
 
@@ -100,6 +101,22 @@ public class ReactorService {
                         .when()
                         .pathParam("key",key)
                         .get(ANALYSIS.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getResetProgress(String key, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParam("key",key)
+                        .get(RESET_PROGRESS.getEndpoint())
                         .then()
                         .log()
                         .ifValidationFails()
