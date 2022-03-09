@@ -7,8 +7,8 @@ import reactor.model.User;
 import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static org.apache.http.HttpStatus.SC_OK;
-import static reactor.Constans.CAN_NOT_PASS;
-import static reactor.Constans.incorrectValue;
+import static reactor.Constants.CAN_NOT_PASS;
+import static reactor.Constants.incorrectValue;
 import static reactor.ReactorSpecification.createUser;
 import static reactor.util.Parser.parseCheckInResponse;
 

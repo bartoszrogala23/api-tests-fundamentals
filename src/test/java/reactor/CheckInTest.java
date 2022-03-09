@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static groovy.json.JsonOutput.toJson;
-import static reactor.Constans.CHECK_IN_MESSAGE;
+import static reactor.Constants.CHECK_IN_MESSAGE;
 import static reactor.ReactorSpecification.createUser;
 import static reactor.util.Parser.parseCheckInResponse;
 

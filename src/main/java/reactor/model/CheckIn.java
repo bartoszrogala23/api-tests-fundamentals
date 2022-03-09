@@ -10,6 +10,6 @@ import static lombok.AccessLevel.PRIVATE;
 @Value
 @AllArgsConstructor(access = PRIVATE)
 public class CheckIn {
-    private String message;
-    private String key;
+    String message;
+    String key;
 }

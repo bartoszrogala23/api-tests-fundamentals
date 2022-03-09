@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.http.HttpStatus.SC_OK;
-import static reactor.Constans.INFORMATION_MESSAGE;
+import static reactor.Constants.INFORMATION_MESSAGE;
 
 class InformationTest extends ReactorBase {
     @Test
