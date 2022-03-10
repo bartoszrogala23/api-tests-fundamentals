@@ -9,8 +9,6 @@ class CheckInTest extends ReactorBase {
     @DisplayName("desk check in test")
     void postCheckInTest() {
 
-
-
         softly.assertThat(checkIn.toString()).contains(CHECK_IN_MESSAGE);
         softly.assertAll();
     }
