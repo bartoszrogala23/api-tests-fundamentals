@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.Map;
 
 import static crypto.ServiceEndpoint.ENCRYPTED_MESSAGE;
+import static crypto.ServiceEndpoint.FINAL_MESSAGE;
 import static crypto.ServiceEndpoint.GET_INFO;
 import static crypto.ServiceEndpoint.GET_INFO_FROM_BOX;
 import static crypto.ServiceEndpoint.LOGIN;
@@ -92,6 +93,24 @@ public class CryptoService {
                 .log()
                 .ifValidationFails()
                 .statusCode(httpStatus)
+                .extract()
+                .response();
+    }
+
+    public static Response postFinalMessage(RequestSpecification spec, String user_uuid, String authorizedBy,
+                                            String body) {
+        return given()
+                .log()
+                .ifValidationFails()
+                .when()
+                .spec(spec)
+                .pathParam("user_uuid", user_uuid)
+                .header(AUTHORIZED_BY, authorizedBy)
+                .body(body)
+                .post(FINAL_MESSAGE.getEndpoint())
+                .then()
+                .log()
+                .ifValidationFails()
                 .extract()
                 .response();
     }
