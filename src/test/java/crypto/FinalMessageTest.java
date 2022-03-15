@@ -1,12 +1,9 @@
 package crypto;
 
-import crypto.model.Box;
+import crypto.model.EncryptedMessage;
 import crypto.util.Parser;
-import fundamentals.util.Util;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
-
-import java.util.Map;
 
 import static crypto.util.Constants.AUTHORIZED_BY;
 import static crypto.util.Util.getCodename;
@@ -18,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class FinalMessageTest extends CryptoBase {
 
-//TODO: napraw
     @Test
     void finalMessageTest() {
         var register = CryptoService.postRegister(toJson(user), SC_CREATED);
@@ -28,22 +24,14 @@ class FinalMessageTest extends CryptoBase {
         var login = CryptoService.postLogin(requestSpecification, SC_OK);
         String authorizedBy = login.getHeader(AUTHORIZED_BY);
 
-        CryptoService.getEncryptedMessage(requestSpecification, authorizedBy, SC_OK);
+        var encryptedMessage = Parser.getEncryptedMessage(requestSpecification, authorizedBy);
 
         String codename = getCodename(register.getBody().asString());
+        String messageValue = encryptedMessage.getMessage();
+        EncryptedMessage message = EncryptedMessage.builder().message(messageValue).build();
 
-        Map<String, Object> queryParams = Map.of(
-                "user_uuid", codename,
-                "message_type", "secret");
+        var response = CryptoService.postFinalMessage(requestSpecification, codename, authorizedBy, toJson(message));
 
-        var box = Parser.getBoxMessage(requestSpecification, queryParams, authorizedBy);
-        String message = box.getEnvelope();
-
-            Box msg = Box.builder().envelope(message).build();
-
-        var response = CryptoService.postFinalMessage(requestSpecification,codename,authorizedBy,toJson(msg));
-
-        assertThat(response.getStatusCode()).isEqualTo(SC_OK);
-
+        assertThat(response.getBody().asString()).contains("From Russia, With Love");
     }
 }

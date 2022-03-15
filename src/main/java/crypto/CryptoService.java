@@ -97,14 +97,14 @@ public class CryptoService {
                 .response();
     }
 
-    public static Response postFinalMessage(RequestSpecification spec, String user_uuid, String authorizedBy,
+    public static Response postFinalMessage(RequestSpecification spec, String pathParam, String authorizedBy,
                                             String body) {
         return given()
                 .log()
                 .ifValidationFails()
                 .when()
                 .spec(spec)
-                .pathParam("user_uuid", user_uuid)
+                .pathParam("user_uuid", pathParam)
                 .header(AUTHORIZED_BY, authorizedBy)
                 .body(body)
                 .post(FINAL_MESSAGE.getEndpoint())
