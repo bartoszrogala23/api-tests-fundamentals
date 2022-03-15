@@ -4,8 +4,11 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 import static crypto.ServiceEndpoint.ENCRYPTED_MESSAGE;
 import static crypto.ServiceEndpoint.GET_INFO;
+import static crypto.ServiceEndpoint.GET_INFO_FROM_BOX;
 import static crypto.ServiceEndpoint.LOGIN;
 import static crypto.ServiceEndpoint.REGISTER;
 import static crypto.util.Constants.AUTHORIZED_BY;
@@ -63,10 +66,28 @@ public class CryptoService {
         return given()
                 .log()
                 .ifValidationFails()
-                .header(AUTHORIZED_BY, authorizedBy)
                 .when()
+                .header(AUTHORIZED_BY, authorizedBy)
                 .spec(spec)
                 .get(ENCRYPTED_MESSAGE.getEndpoint())
+                .then()
+                .log()
+                .ifValidationFails()
+                .statusCode(httpStatus)
+                .extract()
+                .response();
+    }
+
+    public static Response getBox(RequestSpecification spec, Map<String, Object> queryParams,String authorizedBy,
+                                  int httpStatus) {
+        return given()
+                .log()
+                .ifValidationFails()
+                .when()
+                .spec(spec)
+                .queryParams(queryParams)
+                .header(AUTHORIZED_BY, authorizedBy)
+                .get(GET_INFO_FROM_BOX.getEndpoint())
                 .then()
                 .log()
                 .ifValidationFails()

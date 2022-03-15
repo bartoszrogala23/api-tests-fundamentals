@@ -13,15 +13,10 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class LoginTest {
+class LoginTest extends CryptoBase{
 
     @Test
     void loginUserTest() {
-        String userName = faker.funnyName().name();
-        String password = createUniqueValue();
-
-        User user = createUser(userName, password);
-
         CryptoService.postRegister(toJson(user), SC_CREATED);
 
         RequestSpecification requestSpecification =

@@ -29,10 +29,6 @@ Y
 )src/main/java/fundamentals/util/Util.java,5\3\53444c1bac45ff74b88c8fec52ab31b9c379ebc5
 c
 3src/main/java/fundamentals/FundamentalsService.java,c\8\c8e2ca214923b63eb77f3cc50342c9739c130f24
-Y
-)src/main/java/crypto/ServiceEndpoint.java,0\2\0275c97e2d94fc869167db21cf6d6ac7bbfe0924
-\
-,src/test/java/crypto/GetInformationTest.java,a\1\a10c4d406fa6f6342a18685b275f1cbc8500cd8c
 T
 $src/main/java/crypto/model/User.java,4\a\4aa1966933d7be1b8cfee570e76c9e93f5d3f8f8
 `
