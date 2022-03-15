@@ -109,8 +109,6 @@ public class CryptoService {
                 .body(body)
                 .post(FINAL_MESSAGE.getEndpoint())
                 .then()
-                .log()
-                .ifValidationFails()
                 .extract()
                 .response();
     }
