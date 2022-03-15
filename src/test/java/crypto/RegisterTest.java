@@ -14,16 +14,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class RegisterTest {
 
     @Test
-    void postRegisterTest(){
-        User user = createUser(faker.funnyName().name(),uniqueValue);
+    void postRegisterTest() {
+        User user = createUser(faker.funnyName().name(), uniqueValue);
 
-        var response = CryptoService.postRegister(toJson(user),SC_CREATED);
+        var response = CryptoService.postRegister(toJson(user), SC_CREATED);
 
         String responseText = response.getBody().asString();
 
         assertThat(responseText).contains(REGISTER_MESSAGE);
-
-        // User's unique identification number starts from character no 78
-        String id = responseText.substring(78);
     }
 }
