@@ -1,10 +1,10 @@
 package challengePrimer.util;
 
-import challengePrimer.PrimerService;
-import challengePrimer.model.Register;
-import com.google.gson.Gson;
-import static org.apache.http.HttpStatus.SC_CREATED;
+import lombok.AllArgsConstructor;
 
+import static lombok.AccessLevel.PRIVATE;
+
+@AllArgsConstructor(access = PRIVATE)
 public class Util {
     
     public static final String GET_INFORMATION_MESSAGE = "Oi! W'at can I do for ya? In this primer for challenges you'll " +
