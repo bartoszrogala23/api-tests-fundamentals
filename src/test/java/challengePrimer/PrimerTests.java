@@ -72,7 +72,8 @@ class PrimerTests {
 
         var response = PrimerService.postRegister(toJson(user), SC_CREATED);
 
-        assertThat(response.getBody().asString()).contains("User " + user.getUsername() + " registered");
+        assertThat(response.getBody().asString())
+                .contains("User " + user.getUsername() + " registered");
     }
 
     @Test
@@ -88,6 +89,7 @@ class PrimerTests {
 
         var response = PrimerService.postLogin(toJson(user), SC_ACCEPTED);
 
-assertThat(response.getBody().asString()).contains("Welcome, " + user.getUsername() + ", in the Primer!");
+assertThat(response.getBody().asString())
+        .contains("Welcome, " + user.getUsername() + ", in the Primer!");
     }
 }

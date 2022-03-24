@@ -13,4 +13,3 @@ import static lombok.AccessLevel.PRIVATE;
         String username;
         String password;
     }
-
