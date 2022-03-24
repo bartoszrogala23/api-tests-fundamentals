@@ -91,12 +91,13 @@ public class PrimerService {
                         .response();
     }
 
-    public static Response postLogin (int httpStatus) {
+    public static Response postLogin (String body, int httpStatus) {
         return
                 given()
                         .log()
                         .ifValidationFails()
                         .when()
+                        .body(body)
                         .post(LOGIN.getEndpoint())
                         .then()
                         .statusCode(httpStatus)
