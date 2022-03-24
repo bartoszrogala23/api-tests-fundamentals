@@ -75,12 +75,13 @@ public class PrimerService {
                         .response();
     }
 
-    public static Response postRegister(int httpStatus) {
+    public static Response postRegister(String body, int httpStatus) {
         return
                 given()
                         .log()
                         .ifValidationFails()
                         .when()
+                        .body(body)
                         .post(REGISTER.getEndpoint())
                         .then()
                         .statusCode(httpStatus)
