@@ -2,6 +2,8 @@ package reactor;
 
 import io.restassured.response.Response;
 
+import java.util.Map;
+
 import static fundamentals.util.Values.KEY;
 import static io.restassured.RestAssured.given;
 import static reactor.ServiceEndpoint.*;
@@ -112,6 +114,22 @@ public class ReactorService {
                         .when()
                         .pathParam(KEY, key)
                         .get(RESET_PROGRESS.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response putFuelRod(Map<String, String> pathParams, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParams(pathParams)
+                        .put(FUEL_ROD.getEndpoint())
                         .then()
                         .log()
                         .ifValidationFails()
