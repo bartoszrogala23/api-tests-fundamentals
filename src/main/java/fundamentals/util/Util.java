@@ -1,6 +1,7 @@
 package fundamentals.util;
 
 import com.github.javafaker.Faker;
+import fundamentals.models.AzControlRoom;
 import fundamentals.models.People;
 import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import io.restassured.builder.RequestSpecBuilder;
@@ -13,6 +14,7 @@ import java.util.Random;
 
 import static fundamentals.util.Values.FROM_NUMBER;
 import static fundamentals.util.Values.UP_TO_NUMBER;
+import static groovy.json.JsonOutput.toJson;
 import static lombok.AccessLevel.PRIVATE;
 
 
@@ -54,5 +56,11 @@ public class Util {
                 .first_name(faker.name().firstName())
                 .last_name(faker.name().lastName())
                 .build();
+    }
+
+    public static String setControlRoomManipulator (boolean pressed) {
+       return toJson(AzControlRoom.builder()
+               .pressed(pressed)
+               .build());
     }
 }

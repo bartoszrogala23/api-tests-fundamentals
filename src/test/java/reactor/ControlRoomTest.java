@@ -2,7 +2,6 @@ package reactor;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import reactor.model.User;
 
 import static org.apache.http.HttpStatus.SC_FORBIDDEN;
 import static org.apache.http.HttpStatus.SC_OK;
@@ -19,7 +18,6 @@ class ControlRoomTest extends ReactorBase {
         var response  = ReactorService.getControlRoom(key,SC_OK);
 
         ReactorSpecification.setupReactorPower(key);
-
     }
 
     @Test
@@ -28,8 +26,7 @@ class ControlRoomTest extends ReactorBase {
 
         var response = ReactorService.getControlRoom(incorrectValue,SC_FORBIDDEN);
 
-        softly.assertThat(response.getBody().asString())
+        assertThat(response.getBody().asString())
                 .contains(CAN_NOT_PASS);
-        softly.assertAll();
     }
 }

@@ -1,41 +1,36 @@
 package reactor;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import reactor.model.CheckIn;
 
+import static fundamentals.util.Util.setControlRoomManipulator;
 import static groovy.json.JsonOutput.toJson;
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
-import static org.apache.http.HttpStatus.SC_OK;
-import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
+import static org.apache.http.HttpStatus.*;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static reactor.Constants.AZ5_CORRECT;
-import static reactor.Constants.AZ5_FORBIDDEN;
-import static reactor.Constants.AZ5_INVALID;
-import static reactor.Constants.incorrectValue;
+import static reactor.Constants.*;
 
 class Az5Test extends ReactorBase {
 
     @Test
     @DisplayName("Az5 using true value test")
-    void Az5Test() {
-        String body = "{\"pressed\": true}";
+    void Az5PositiveTest() {
+        String body = setControlRoomManipulator(true);
 
         var response = ReactorService.putAz5(key, body, SC_OK);
 
-        softly.assertThat(response.getBody().asString().contains(AZ5_CORRECT)).isTrue();
-        softly.assertAll();
+        assertThat(response.getBody().asString()
+                .contains(AZ5_CORRECT)).isTrue();
     }
 
     @Test
     @DisplayName("Az5 using false value test")
     void Az5NegativeTest() {
-        String body = "{\"pressed\": false}";
+        String body = setControlRoomManipulator(false);
 
         var response = ReactorService.putAz5(key, body, SC_FORBIDDEN);
 
-        assertThat(response.getBody().asString()).contains(AZ5_FORBIDDEN);
+        assertThat(response.getBody().asString())
+                .contains(AZ5_FORBIDDEN);
     }
 
     @Test
@@ -44,7 +39,7 @@ class Az5Test extends ReactorBase {
 
         var response = ReactorService.putAz5(key, toJson(incorrectValue), SC_UNPROCESSABLE_ENTITY);
 
-        assertThat(response.getBody().asString()).contains(AZ5_INVALID);
-
+        assertThat(response.getBody().asString())
+                .contains(AZ5_INVALID);
     }
 }

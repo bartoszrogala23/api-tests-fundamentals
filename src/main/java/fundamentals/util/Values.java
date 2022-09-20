@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class Values {
+    public static final String KEY = "key";
     public static final String USERNAME = "Captain_snack";
     public static final String PASSWORD = "LateNightSausage";
 

@@ -2,14 +2,9 @@ package reactor;
 
 import io.restassured.response.Response;
 
+import static fundamentals.util.Values.KEY;
 import static io.restassured.RestAssured.given;
-import static reactor.ServiceEndpoint.ANALYSIS;
-import static reactor.ServiceEndpoint.AZ_5;
-import static reactor.ServiceEndpoint.CHECK_IN;
-import static reactor.ServiceEndpoint.CONTROL_ROOM;
-import static reactor.ServiceEndpoint.INFORMATION;
-import static reactor.ServiceEndpoint.REACTOR_CORE;
-import static reactor.ServiceEndpoint.RESET_PROGRESS;
+import static reactor.ServiceEndpoint.*;
 
 public class ReactorService {
 
@@ -50,7 +45,7 @@ public class ReactorService {
                         .log()
                         .ifValidationFails()
                         .when()
-                        .pathParam("key",key)
+                        .pathParam(KEY, key)
                         .get(CONTROL_ROOM.getEndpoint())
                         .then()
                         .log()
@@ -67,7 +62,7 @@ public class ReactorService {
                         .ifValidationFails()
                         .when()
                         .body(body)
-                        .pathParam("key",key)
+                        .pathParam(KEY, key)
                         .put(AZ_5.getEndpoint())
                         .then()
                         .log()
@@ -83,7 +78,7 @@ public class ReactorService {
                         .log()
                         .ifValidationFails()
                         .when()
-                        .pathParam("key",key)
+                        .pathParam(KEY, key)
                         .get(REACTOR_CORE.getEndpoint())
                         .then()
                         .log()
@@ -99,7 +94,7 @@ public class ReactorService {
                         .log()
                         .ifValidationFails()
                         .when()
-                        .pathParam("key",key)
+                        .pathParam(KEY, key)
                         .get(ANALYSIS.getEndpoint())
                         .then()
                         .log()
@@ -115,7 +110,7 @@ public class ReactorService {
                         .log()
                         .ifValidationFails()
                         .when()
-                        .pathParam("key",key)
+                        .pathParam(KEY, key)
                         .get(RESET_PROGRESS.getEndpoint())
                         .then()
                         .log()

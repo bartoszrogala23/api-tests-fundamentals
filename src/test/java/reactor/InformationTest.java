@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
 import static reactor.Constants.INFORMATION_MESSAGE;
 
 class InformationTest extends ReactorBase {
@@ -13,7 +14,6 @@ class InformationTest extends ReactorBase {
 
         var response = ReactorService.getInformation(SC_OK);
 
-        softly.assertThat(response.body().asString()).contains(INFORMATION_MESSAGE);
-        softly.assertAll();
+        assertThat(response.body().asString()).contains(INFORMATION_MESSAGE);
     }
 }
