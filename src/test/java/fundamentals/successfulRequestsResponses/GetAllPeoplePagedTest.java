@@ -14,6 +14,7 @@ import static fundamentals.util.Values.PAGE_SIZE_VALUE;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GetAllPeoplePagedTest extends FundamentalsBase {
 
@@ -31,8 +32,7 @@ class GetAllPeoplePagedTest extends FundamentalsBase {
                 .then()
                 .body(matchesJsonSchemaInClasspath(fundamentalsGetPeople));
 
-        softly.assertThat(response.body().asString()).contains("first_name", "last_name");
-        softly.assertAll();
+        assertThat(response.body().asString()).contains("first_name", "last_name");
     }
 
     @Test

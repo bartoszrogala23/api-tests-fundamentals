@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class headerCheckTest extends FundamentalsBase {
 
@@ -16,7 +17,6 @@ class headerCheckTest extends FundamentalsBase {
 
         var response = FundamentalsService.getHeaderCheck(SC_OK);
 
-        softly.assertThat(response.body().asString()).contains("Probably you should ask for the auth key");
-        softly.assertAll();
+        assertThat(response.body().asString()).contains("Probably you should ask for the auth key");
     }
 }

@@ -10,6 +10,7 @@ import static fundamentals.util.Util.getRandomId;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ThingIdTest extends FundamentalsBase {
 
@@ -19,8 +20,7 @@ class ThingIdTest extends FundamentalsBase {
 
         var response = FundamentalsService.getThingId(getRandomId(), SC_NOT_FOUND);
 
-        softly.assertThat(response.body().asString()).contains("No resource with thing_id=");
-        softly.assertAll();
+        assertThat(response.body().asString()).contains("No resource with thing_id=");
     }
 
     @Test
@@ -40,9 +40,8 @@ class ThingIdTest extends FundamentalsBase {
 
         var response = FundamentalsService.postThingId(getRandomId(), SC_UNPROCESSABLE_ENTITY);
 
-                       response
-                               .then()
-                               .body(matchesJsonSchemaInClasspath(fundamentalsIdUnprocessableEntity));
-
+        response
+                .then()
+                .body(matchesJsonSchemaInClasspath(fundamentalsIdUnprocessableEntity));
     }
 }

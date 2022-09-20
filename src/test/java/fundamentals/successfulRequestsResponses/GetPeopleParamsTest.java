@@ -15,6 +15,7 @@ import static fundamentals.util.Values.FIRST_NAME;
 import static fundamentals.util.Values.LAST_NAME;
 import static java.util.Arrays.stream;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GetPeopleParamsTest extends FundamentalsBase {
 
@@ -36,8 +37,7 @@ class GetPeopleParamsTest extends FundamentalsBase {
 
         var response = FundamentalsService.getAllPeopleByName(params, SC_OK);
 
-        softly.assertThat(response.body().asString()).contains(name);
-        softly.assertAll();
+        assertThat(response.body().asString()).contains(name);
     }
 
     @Test
@@ -49,8 +49,7 @@ class GetPeopleParamsTest extends FundamentalsBase {
 
         var response = FundamentalsService.getAllPeopleByName(params, SC_OK);
 
-        softly.assertThat(response.body().asString()).contains(lastName);
-        softly.assertAll();
+        assertThat(response.body().asString()).contains(lastName);
     }
 
     @Test
@@ -64,7 +63,6 @@ class GetPeopleParamsTest extends FundamentalsBase {
 
         var response = FundamentalsService.getAllPeopleByName(params, SC_OK);
 
-        softly.assertThat(response.body().asString()).contains(name, lastName);
-        softly.assertAll();
+        assertThat(response.body().asString()).contains(name, lastName);
     }
 }

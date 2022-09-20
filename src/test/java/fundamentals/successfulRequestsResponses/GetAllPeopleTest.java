@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GetAllPeopleTest extends FundamentalsBase {
 
@@ -20,7 +21,6 @@ class GetAllPeopleTest extends FundamentalsBase {
                 .then()
                 .body(matchesJsonSchemaInClasspath(fundamentalsGetPeople));
 
-        softly.assertThat(response.body().asString()).contains("first_name", "last_name");
-        softly.assertAll();
+        assertThat(response.body().asString()).contains("first_name", "last_name");
     }
 }

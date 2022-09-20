@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static fundamentals.util.Util.getRandomId;
 import static org.apache.http.HttpStatus.SC_ACCEPTED;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class DeleteHumanTest extends FundamentalsBase {
 
@@ -19,7 +20,7 @@ class DeleteHumanTest extends FundamentalsBase {
 
         var response = FundamentalsService.deleteHuman(randomId, SC_ACCEPTED);
 
-        softly.assertThat(response.body().asString()).contains
+        assertThat(response.body().asString()).contains
                 ("Human at index " + randomId + " deleted.");
     }
 }

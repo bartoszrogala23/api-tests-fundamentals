@@ -11,6 +11,7 @@ import java.util.Map;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GetResponseOkWithParamsTest extends FundamentalsBase {
 
@@ -32,13 +33,12 @@ class GetResponseOkWithParamsTest extends FundamentalsBase {
 
         var response = FundamentalsService.getResponseOkWithParams(params, SC_OK);
 
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains(name);
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains(middleName);
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains(lastName);
-        softly.assertAll();
     }
 
     @Test

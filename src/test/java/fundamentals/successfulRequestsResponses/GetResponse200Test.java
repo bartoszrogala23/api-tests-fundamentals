@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class GetResponse200Test extends FundamentalsBase {
 
@@ -20,12 +22,9 @@ class GetResponse200Test extends FundamentalsBase {
                 .then()
                 .body(matchesJsonSchemaInClasspath(fundamentalsGetResponse));
 
-        softly.assertThat(response.body().asString())
-                .contains("This is GET example for status code 200");
-        softly.assertThat(response.body().asString())
-                .contains("OK");
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
+                .contains("This is GET example for status code 200")
+                .contains("OK")
                 .contains("The request has succeeded");
-        softly.assertAll();
     }
 }

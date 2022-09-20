@@ -16,6 +16,7 @@ import static fundamentals.util.Values.LAST_NAME;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.apache.http.HttpStatus.SC_UNPROCESSABLE_ENTITY;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GetAllPeopleSlicedTest extends FundamentalsBase {
 
@@ -29,9 +30,8 @@ class GetAllPeopleSlicedTest extends FundamentalsBase {
                 .then()
                 .body(matchesJsonSchemaInClasspath(getSchema("getPeopleSchema")));
 
-        softly.assertThat(response.body().asString()).containsOnlyOnce(FIRST_NAME);
-        softly.assertThat(response.body().asString()).containsOnlyOnce(LAST_NAME);
-        softly.assertAll();
+        assertThat(response.body().asString()).containsOnlyOnce(FIRST_NAME);
+        assertThat(response.body().asString()).containsOnlyOnce(LAST_NAME);
     }
 
     @Test

@@ -7,7 +7,6 @@ import org.assertj.core.api.SoftAssertions;
 import static fundamentals.FundamentalsServiceSpecification.getSchema;
 
 public abstract class FundamentalsBase  {
-    public static SoftAssertions softly = new SoftAssertions();
     public static Faker faker = new Faker();
     public static Gson gson = new Gson();
 

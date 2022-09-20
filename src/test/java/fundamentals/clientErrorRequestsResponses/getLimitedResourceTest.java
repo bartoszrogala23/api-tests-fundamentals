@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class getLimitedResourceTest extends FundamentalsBase {
 
@@ -15,6 +16,6 @@ class getLimitedResourceTest extends FundamentalsBase {
 
         var response = FundamentalsService.getLimitedResource(SC_OK);
 
-        softly.assertThat(response.body().asString()).contains("The sausage is allowed for the Captain_snack.");
+        assertThat(response.body().asString()).contains("The sausage is allowed for the Captain_snack.");
     }
 }

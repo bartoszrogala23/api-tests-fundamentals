@@ -16,6 +16,7 @@ import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_ACCEPTED;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ForLoggedUsersTest extends FundamentalsBase {
 
@@ -30,8 +31,7 @@ class ForLoggedUsersTest extends FundamentalsBase {
         Map<String,String> cookies = FundamentalsService.logUser(toJson(user), SC_ACCEPTED).getCookies();
         var response = FundamentalsService.getInfoForLoggedUser(cookies, SC_OK);
 
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains("Observe this fully operational battle station, young " + userName);
-        softly.assertAll();
     }
 }

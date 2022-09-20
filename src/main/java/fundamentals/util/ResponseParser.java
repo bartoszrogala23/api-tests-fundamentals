@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import fundamentals.models.People;
 import io.restassured.response.Response;
 
-
 public class ResponseParser {
     private static final Gson gson = new Gson();
 

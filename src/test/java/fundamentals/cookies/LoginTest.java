@@ -13,6 +13,7 @@ import static fundamentals.util.Values.PASSWORD;
 import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_ACCEPTED;
 import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 class LoginTest extends FundamentalsBase {
@@ -27,7 +28,7 @@ class LoginTest extends FundamentalsBase {
 
         var response = FundamentalsService.logUser(toJson(user),SC_ACCEPTED);
 
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains("Goooooood " + userName + ", everything is proceeding just as I have foreseen it.");
     }
 }

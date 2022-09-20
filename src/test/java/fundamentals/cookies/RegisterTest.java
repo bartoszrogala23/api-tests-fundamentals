@@ -11,6 +11,7 @@ import static fundamentals.util.Values.PASSWORD;
 import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RegisterTest extends FundamentalsBase {
     String user;
@@ -26,9 +27,8 @@ class RegisterTest extends FundamentalsBase {
 
         var response = FundamentalsService.registerUser(toJson(setUser(user, PASSWORD)), SC_CREATED);
 
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains("User " + user + " registered");
-        softly.assertAll();
     }
 
     @Test
@@ -38,8 +38,7 @@ class RegisterTest extends FundamentalsBase {
         FundamentalsService.registerUser(toJson(setUser(user, PASSWORD)), SC_CREATED);
         var response = FundamentalsService.registerUser(toJson(setUser(user, PASSWORD)), SC_BAD_REQUEST);
 
-        softly.assertThat(response.body().asString())
+        assertThat(response.body().asString())
                 .contains("You are already registered to join the Empire!");
-        softly.assertAll();
     }
 }
