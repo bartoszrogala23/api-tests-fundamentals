@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static challengePrimer.util.Util.FLAG_MESSAGE;
-import static challengePrimer.util.Util.GET_INFORMATION_MESSAGE;
-import static challengePrimer.util.Util.TRYOUT_MESSAGE;
+import static challengePrimer.util.Util.*;
 import static groovy.json.JsonOutput.toJson;
 import static java.lang.String.valueOf;
 import static org.apache.http.HttpStatus.SC_ACCEPTED;
