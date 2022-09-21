@@ -1,15 +1,31 @@
 package reactor;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import reactor.model.CheckIn;
+import reactor.model.User;
 
 import static fundamentals.util.Util.setControlRoomManipulator;
 import static groovy.json.JsonOutput.toJson;
 import static org.apache.http.HttpStatus.*;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static reactor.Constants.*;
+import static reactor.util.Parser.parseCheckInResponse;
+import static reactor.util.ReactorSpecification.createUser;
 
-class Az5Test extends ReactorBase {
+class Az5Test {
+
+    public CheckIn checkIn;
+    public String key;
+    public User user;
+
+    @BeforeEach
+    public void setup(){
+        user = createUser();
+        checkIn = parseCheckInResponse(toJson(user));
+        key = checkIn.getKey();
+    }
 
     @Test
     @DisplayName("Az5 using true value test")

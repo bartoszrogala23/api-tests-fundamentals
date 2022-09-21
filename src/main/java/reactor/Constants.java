@@ -17,4 +17,10 @@ public class Constants {
     public static final String CORE_LOOKS_FINE = "the core looks fine";
     public static final String STATE_OPERATIONAL = "the reactor is in state Operational!";
     public static final String GOOD_AS_NEW = "Your reactor is good as new!";
+    public static final String REACTOR_UUID = "_ReactorCore__uuid\":\"%s";
+    public static final String ROD_NUMBER = "rod_number";
+    public static final String FUEL_ROD_ALREADY_IN_PLACE = "Right, %s, Fuel rod at 1 already in place";
+    public static final String FUEL_ROD_PUT = "Right, %s, Adding fuel rod at 1!.";
+
+
 }
