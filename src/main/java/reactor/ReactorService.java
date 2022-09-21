@@ -137,4 +137,20 @@ public class ReactorService {
                         .extract()
                         .response();
     }
+
+    public static Response deleteFuelRod(Map<String, String> pathParams, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParams(pathParams)
+                        .delete(FUEL_ROD.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }

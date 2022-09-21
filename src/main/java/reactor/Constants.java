@@ -19,8 +19,9 @@ public class Constants {
     public static final String GOOD_AS_NEW = "Your reactor is good as new!";
     public static final String REACTOR_UUID = "_ReactorCore__uuid\":\"%s";
     public static final String ROD_NUMBER = "rod_number";
+
     public static final String FUEL_ROD_ALREADY_IN_PLACE = "Right, %s, Fuel rod at 1 already in place";
     public static final String FUEL_ROD_PUT = "Right, %s, Adding fuel rod at 1!.";
-
-
+    public static final String FUEL_ROD_REMOVED = "Right, %s, Removing fuel rod at 1!.";
+    public static final String FUEL_ROD_ALREADY_REMOVED = "Right, %s, Fuel rod at 1 already in out!.";
 }
