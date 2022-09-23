@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "achievements": {
+      "type": "object",
+      "properties": {
+        "nucleocreator": {
+          "type": "boolean"
+        },
+        "aminoacid_appender": {
+          "type": "boolean"
+        },
+        "mutator": {
+          "type": "boolean"
+        },
+        "reductor": {
+          "type": "boolean"
+        },
+        "eradicator": {
+          "type": "boolean"
+        },
+        "architect": {
+          "type": "boolean"
+        },
+        "observer": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "nucleocreator",
+        "aminoacid_appender",
+        "mutator",
+        "reductor",
+        "eradicator",
+        "architect",
+        "observer"
+      ]
+    },
+    "proteomaster_flag": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "achievements",
+    "proteomaster_flag"
+  ]
+}
