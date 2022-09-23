@@ -14,7 +14,6 @@ import static org.apache.http.HttpStatus.SC_ACCEPTED;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
 import static reactor.Constants.*;
-import static reactor.Constants.FUEL_ROD_ALREADY_REMOVED;
 import static reactor.util.Parser.parseCheckInResponse;
 import static reactor.util.ReactorSpecification.createUser;
 
@@ -33,7 +32,7 @@ public class ControlRodTest {
     }
 
     @Test
-    @DisplayName("try to put fuel rod test")
+    @DisplayName("try to put control rod test")
     void putControlRodTest() {
 
         ReactorService.getControlRoom(key, SC_OK);
@@ -52,7 +51,7 @@ public class ControlRodTest {
     }
 
     @Test
-    @DisplayName("try to delete fuel rod test")
+    @DisplayName("try to delete control rod test")
     void deleteControlRodTest() {
 
         ReactorService.getControlRoom(key, SC_OK);
