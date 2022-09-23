@@ -153,4 +153,36 @@ public class ReactorService {
                         .extract()
                         .response();
     }
+
+    public static Response putControlRod(Map<String, String> pathParams, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParams(pathParams)
+                        .put(CONTROL_ROD.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response deleteControlRod(Map<String, String> pathParams, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .when()
+                        .pathParams(pathParams)
+                        .delete(CONTROL_ROD.getEndpoint())
+                        .then()
+                        .log()
+                        .ifValidationFails()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
 }

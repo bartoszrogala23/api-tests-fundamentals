@@ -24,4 +24,8 @@ public class Constants {
     public static final String FUEL_ROD_PUT = "Right, %s, Adding fuel rod at 1!.";
     public static final String FUEL_ROD_REMOVED = "Right, %s, Removing fuel rod at 1!.";
     public static final String FUEL_ROD_ALREADY_REMOVED = "Right, %s, Fuel rod at 1 already in out!.";
+    public static final String CONTROL_ROD_ALREADY_IN_PLACE = "Right, %s, Control rod at 1 already in place";
+    public static final String CONTROL_ROD_PUT = "Right, %s, Adding control rod at 1!.";
+    public static final String CONTROL_ROD_REMOVED = "Right, %s, Removing control rod at 1!.";
+    public static final String CONTROL_ROD_ALREADY_REMOVED = "Right, %s, Control rod at 1 already in out!.";
 }
