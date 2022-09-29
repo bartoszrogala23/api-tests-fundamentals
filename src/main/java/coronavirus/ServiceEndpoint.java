@@ -14,9 +14,9 @@ public enum ServiceEndpoint {
     SAMPLE_SEQUENCE(LOCAL_HOST.endpoint + "/challenge/genetics/sample_sequence"),
     GET_COPY(LOCAL_HOST.endpoint + "/challenge/genetics/copy"),
     TRIPLET_ID(LOCAL_HOST.endpoint + "/challenge/genetics/triplets/{triplet_id}"),
-    TRIPLETS(LOCAL_HOST.endpoint + "/challenge/genetics/triplets"),
-    NUCLEOTIDE(LOCAL_HOST.endpoint + "/challenge/genetics/nucleotides/{nucleotide_id}"),
-    NUCLEOTIDES(LOCAL_HOST.endpoint + "/challenge/genetics/nucleotides"),
+    TRIPLETS(LOCAL_HOST.endpoint + "/challenge/genetics/triplets/"),
+    NUCLEOTIDE_ID(LOCAL_HOST.endpoint + "/challenge/genetics/nucleotides/{nucleotide_id}"),
+    NUCLEOTIDES(LOCAL_HOST.endpoint + "/challenge/genetics/nucleotides/"),
     TRANSLATION(LOCAL_HOST.endpoint + "/challenge/genetics/translation");
 
     private final String endpoint;

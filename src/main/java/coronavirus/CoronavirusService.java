@@ -6,8 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import static coronavirus.ServiceEndpoint.*;
+import static coronavirus.util.Constant.*;
+import static coronavirus.util.Constant.NUCLEOTIDE_ID;
 import static coronavirus.util.Constant.TRIPLET_ID;
-import static coronavirus.util.Constant.TRIPLET_TO_ADD;
 import static io.restassured.RestAssured.given;
 
 @AllArgsConstructor
@@ -143,7 +144,7 @@ public class CoronavirusService {
                         .response();
     }
 
-    public static Response patchTriplet(RequestSpecification specification, int tripletId, int tripletToAdd, int httpStatus) {
+    public static Response patchTriplet(RequestSpecification specification, int tripletId, String tripletToAdd, int httpStatus) {
         return
                 given()
                         .log()
@@ -152,7 +153,125 @@ public class CoronavirusService {
                         .pathParams(TRIPLET_ID, tripletId)
                         .queryParam(TRIPLET_TO_ADD, tripletToAdd)
                         .when()
-                        .delete(ServiceEndpoint.TRIPLET_ID.getEndpoint())
+                        .patch(ServiceEndpoint.TRIPLET_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response putTriplet(RequestSpecification specification, String tripletToAdd, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .queryParam(TRIPLET_TO_ADD, tripletToAdd)
+                        .when()
+                        .put(TRIPLETS.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response addTriplet(RequestSpecification specification, String tripletToAdd, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .queryParam(TRIPLET_TO_ADD, tripletToAdd)
+                        .when()
+                        .post(TRIPLETS.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getNucleotide(RequestSpecification specification, int nucleotideId, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .pathParam(NUCLEOTIDE_ID, nucleotideId)
+                        .when()
+                        .get(ServiceEndpoint.NUCLEOTIDE_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response deleteNucleotide(RequestSpecification specification, int nucleotideId, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .pathParam(NUCLEOTIDE_ID, nucleotideId)
+                        .when()
+                        .delete(ServiceEndpoint.NUCLEOTIDE_ID.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response putNucleotide(RequestSpecification specification, String nucleotideToAdd, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .queryParam(NUCLEOTIDE_TO_ADD, nucleotideToAdd)
+                        .when()
+                        .put(NUCLEOTIDES.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response postNucleotide(RequestSpecification specification, String nucleotideToAdd, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .queryParam(NUCLEOTIDE_TO_ADD, nucleotideToAdd)
+                        .when()
+                        .post(NUCLEOTIDES.getEndpoint())
+                        .then()
+                        .log()
+                        .all()
+                        .statusCode(httpStatus)
+                        .extract()
+                        .response();
+    }
+
+    public static Response getTranslation(RequestSpecification specification, int httpStatus) {
+        return
+                given()
+                        .log()
+                        .ifValidationFails()
+                        .spec(specification)
+                        .when()
+                        .get(TRANSLATION.getEndpoint())
                         .then()
                         .log()
                         .all()
