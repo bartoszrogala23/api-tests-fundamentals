@@ -8,15 +8,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static coronavirus.util.Constant.PRIMARY_SEQUENCE_COPIED_INFO;
 import static coronavirus.util.CoronavirusSpecification.createRandomUser;
+import static coronavirus.util.Util.fetchTriplet;
 import static fundamentals.util.Util.setupUsingCredentials;
 import static groovy.json.JsonOutput.toJson;
-import static org.apache.http.HttpStatus.SC_CREATED;
-import static org.apache.http.HttpStatus.SC_OK;
+import static org.apache.http.HttpStatus.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SequenceTest {
+public class TripletTest {
     User user;
     RequestSpecification requestSpecification;
 
@@ -28,32 +27,26 @@ public class SequenceTest {
     }
 
     @Test
-    @DisplayName("GET first sequence test")
-    void getFirstSequenceTest() {
+    @DisplayName("GET triplet test")
+    void getTriplet() {
 
-        var response = CoronavirusService.getPrimarySequence(requestSpecification, SC_OK);
+        final String triplet = fetchTriplet(requestSpecification);
+
+        var response = CoronavirusService.getTriplet(requestSpecification, 1, SC_OK);
 
         assertThat(response.getBody().asString())
-                .contains(Constant.PRIMARY_SEQUENCE_INFO);
+                .contains(triplet);
     }
 
     @Test
-    @DisplayName("GET sample sequence test")
-    void getSampleSequenceTest() {
+    @DisplayName("DELETE triplet test")
+    void deleteTriplet() {
 
-        var response = CoronavirusService.getSampleSequence(requestSpecification, SC_OK);
-
-        assertThat(response.getBody().asString())
-                .isNotEmpty();
-    }
-
-    @Test
-    @DisplayName("GET first sequence copy test")
-    void getFirstSequenceCopyTest() {
-
-        var response = CoronavirusService.getCopy(requestSpecification, SC_OK);
+        var response = CoronavirusService.deleteTriplet(requestSpecification, 1, SC_ACCEPTED);
 
         assertThat(response.getBody().asString())
-                .contains(PRIMARY_SEQUENCE_COPIED_INFO);
+                .contains(Constant.DELETE_TRIPLET_INFO);
     }
+
+
 }
