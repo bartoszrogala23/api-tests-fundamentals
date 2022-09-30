@@ -1,7 +1,6 @@
 package coronavirus.util;
 
 import com.github.javafaker.Faker;
-import com.google.gson.Gson;
 import coronavirus.CoronavirusService;
 import io.restassured.specification.RequestSpecification;
 
