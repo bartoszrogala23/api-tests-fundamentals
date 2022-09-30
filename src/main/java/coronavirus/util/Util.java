@@ -9,7 +9,6 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class Util {
     static final Faker faker = new Faker();
-    public static Gson gson = new Gson();
 
     public static String fetchTriplet(RequestSpecification requestSpecification) {
         var sampleSequence = CoronavirusService.getSampleSequence(requestSpecification, SC_OK).body().asString();
