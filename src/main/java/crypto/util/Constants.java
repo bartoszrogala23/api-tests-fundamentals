@@ -5,4 +5,5 @@ public class Constants {
     public static final String REGISTER_MESSAGE = "User's unique identification number is";
 
     public static final String AUTHORIZED_BY = "authorized-by";
+    public static final String USER_UUID = "user_uuid";
 }

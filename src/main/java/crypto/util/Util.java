@@ -2,6 +2,9 @@ package crypto.util;
 
 import com.github.javafaker.Faker;
 import crypto.model.User;
+import io.restassured.authentication.PreemptiveBasicAuthScheme;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.specification.RequestSpecification;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
@@ -27,5 +30,16 @@ public class Util {
     public static String getCodename(String responseText) {
         String codename = responseText.substring(0, responseText.length() - 2);
         return codename.substring(codename.lastIndexOf(" ") + 1);
+    }
+
+    public static RequestSpecification setupUsingCredentials(String username, String password) {
+        var requestSpecBuilder = new RequestSpecBuilder();
+        var authScheme = new PreemptiveBasicAuthScheme();
+        authScheme.setUserName(username);
+        authScheme.setPassword(password);
+        requestSpecBuilder.addHeader("Content-Type", "application/json");
+        requestSpecBuilder.setAuth(authScheme);
+
+        return requestSpecBuilder.build();
     }
 }

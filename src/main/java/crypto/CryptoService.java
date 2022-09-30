@@ -6,12 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
-import static crypto.ServiceEndpoint.ENCRYPTED_MESSAGE;
-import static crypto.ServiceEndpoint.FINAL_MESSAGE;
-import static crypto.ServiceEndpoint.GET_INFO;
-import static crypto.ServiceEndpoint.GET_INFO_FROM_BOX;
-import static crypto.ServiceEndpoint.LOGIN;
-import static crypto.ServiceEndpoint.REGISTER;
+import static crypto.ServiceEndpoint.*;
 import static crypto.util.Constants.AUTHORIZED_BY;
 import static io.restassured.RestAssured.given;
 import static lombok.AccessLevel.PRIVATE;
