@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static crypto.util.Constants.AUTHORIZED_BY;
+import static crypto.util.Constants.USER_UUID;
 import static crypto.util.Util.getCodename;
 import static fundamentals.util.Util.setupUsingCredentials;
 import static groovy.json.JsonOutput.toJson;
@@ -30,7 +31,7 @@ class BoxTest extends CryptoBase{
         String codename = getCodename(register.getBody().asString());
 
         Map<String, Object> queryParams = Map.of(
-                "user_uuid", codename,
+                USER_UUID, codename,
                 "message_type", "secret");
 
         var response = CryptoService.getBox(requestSpecification, queryParams, authorizedBy,SC_OK);

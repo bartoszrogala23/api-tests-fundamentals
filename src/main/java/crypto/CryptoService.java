@@ -8,6 +8,7 @@ import java.util.Map;
 
 import static crypto.ServiceEndpoint.*;
 import static crypto.util.Constants.AUTHORIZED_BY;
+import static crypto.util.Constants.USER_UUID;
 import static io.restassured.RestAssured.given;
 import static lombok.AccessLevel.PRIVATE;
 
@@ -99,7 +100,7 @@ public class CryptoService {
                 .ifValidationFails()
                 .when()
                 .spec(spec)
-                .pathParam("user_uuid", pathParam)
+                .pathParam(USER_UUID, pathParam)
                 .header(AUTHORIZED_BY, authorizedBy)
                 .body(body)
                 .post(FINAL_MESSAGE.getEndpoint())
