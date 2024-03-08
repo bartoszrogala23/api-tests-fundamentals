@@ -19,4 +19,10 @@ public class Parser {
 
         return gson.fromJson(response.body().asString(), EncryptedMessage.class);
     }
+
+
+    public <K> Object fetchResponse(Response response) {
+
+        return gson.fromJson(response.body().asString(), Object.class);
+    }
 }
